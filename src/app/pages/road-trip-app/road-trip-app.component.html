@@ -1,4 +1,4 @@
-<div class="floating-panel-rnd panel-1"></div>
+<!-- <div class="floating-panel-rnd panel-1"></div>
 
     <div class="panel-content content-1">
       <table>
@@ -110,4 +110,27 @@
       />
     </div>
 
-    <div id="mapDiv"></div>
+    <div id="mapDiv"></div> -->
+
+
+    <google-map
+      [height]="height"
+      width="auto"
+      [zoom]="zoom"
+      [center]="center"
+      [options]="options"
+      (mapClick)="click($event)"
+    >
+      <map-marker
+        #markerElem
+        *ngFor="let marker of markers"
+        [position]="marker.position"
+        [label]="marker.label"
+        [title]="marker.title"
+        [options]="marker.options"
+        (mapClick)="openInfo(markerElem, marker.info)"
+      >
+      </map-marker>
+
+      <map-info-window>{{ infoContent }}</map-info-window>
+    </google-map>
