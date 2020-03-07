@@ -1,0 +1,122 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container text-center">
+    <h1 class="text-white nationalpark-text-regular display-1">
+      Great Basin
+    </h1>
+    <h3 class="text-white nationalpark-text-regular">
+      Visited in August 2018
+    </h3>
+  </div>
+</div>
+<div class="container">
+  <div class="text-background mt-5">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="text-white nationalpark-text-heavy">
+          Geology
+        </h1>
+        <p class="lead text-white nationalpark-text-regular">
+          A technique I use to understand the geology of an area is to look at
+          oil well summaries. Drillers record the rock layers they pierce and at
+          what depth, and many states make this information available online.
+          Great Basin has no recorded wells inside the park boundries, but
+          clusters of wells nearby tap into the Chainman Shale formation.
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6 text-center pt-3 pb-3">
+        <img
+          src="../../../assets/images/great-basin/GreatBasinNP_WellSummaryMap_539x600px.jpg"
+          class="img-fluid"
+          (click)="
+            openDialog(
+              'great-basin',
+              'GreatBasinNP_WellSummaryMap_899x1000px.jpg'
+            )
+          "
+        />
+        <div class="col-lg-12 mx-auto">
+          <p class="nationalpark-text-regular text-white font-italic">
+            Map showing available well summaries and their location in
+            comparison to Great Basin National Park.
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-6 text-center pt-3 pb-3">
+        <img
+          src="../../../assets/images/great-basin/GreatBasinNP_DetailedSummary_449x600px.jpg"
+          class="img-fluid"
+          (click)="
+            openDialog(
+              'great-basin',
+              'GreatBasinNP_DetailedSummary_897x1200px.jpg'
+            )
+          "
+        />
+
+        <div class="col-lg-12 mx-auto">
+          <p class="nationalpark-text-regular text-white font-italic">
+            Detailed drilling report from a nearly 12,000' well in the Great
+            Basin region.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <p class="lead text-white nationalpark-text-regular">
+          In 2014 the National Park Service released an incredibly detailed
+          <a
+            class="text-white"
+            href="../../../assets/documents/great-basin/Great Basin National Park Geologic Resources Report 2014.pdf"
+            download
+          >
+            <u>Geologic Resources Report</u>
+          </a>
+          for Great Basin. Pages 40 through 46 show excellent illustrations of
+          how the North American continent appeared during different geologic
+          periods. The Great Basin region was repeatedly covered by shallow seas
+          until it began to dry out 245 million years ago.
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="text-white nationalpark-text-heavy">My Visit</h1>
+        <p class="lead text-white nationalpark-text-regular pt-2 pb-5">
+          Driving from Salt Lake City to Great Basin was my first time driving
+          on long and straight desert roads. It took nearly 4 hours but I drove
+          up to the Snake Range breaking through the flat desert landscape. I
+          had booked a tour of Lehman Cave. These group tours move kind of slow,
+          but the information presented by the guide was interesting. It was
+          emphasized that Lehman Cave has a high concentration of a rare
+          formation called a cave shield. The guide pointed them out as we went
+          along, some more impressive than others. I was surprised to see a lot
+          of historic writing on the cave walls from the early explorers. My
+          favorite part of the cave was an exposed rock slab showing bright
+          layers. Great Basin had hiking trails and mountain roads to explore,
+          but I was on limited time for this visit and had a long drive back to
+          SLC.
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <mat-carousel
+          proportion="65"
+          [hideArrows]="false"
+          [hideIndicators]="true"
+          slides="5"
+        >
+          <mat-carousel-slide *ngFor="let slide of slides" [image]="slide.src">
+          </mat-carousel-slide>
+        </mat-carousel>
+      </div>
+    </div>
+  </div>
+</div>

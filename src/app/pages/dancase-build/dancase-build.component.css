@@ -1,0 +1,30 @@
+body {
+  background-image: url("/src/dancase-build/images/background.jpg");
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+.container{
+  background: url('../../../assets/images/dancase-build/background.jpg') no-repeat
+    center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  padding-top: 15rem;
+}
+
+.jumbotron-fluid {
+  background: url("../../../assets/images/dancase-build/Cover.jpg") no-repeat center center
+    fixed;
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  background-size: cover;
+}
+
+.title-container {
+  padding-top: 500px;
+  padding-bottom: 50px;
+}

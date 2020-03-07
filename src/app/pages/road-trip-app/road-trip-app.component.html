@@ -1,0 +1,113 @@
+<div class="floating-panel-rnd panel-1"></div>
+
+    <div class="panel-content content-1">
+      <table>
+        <tr>
+          <td>
+            <label for="startInput">Start: </label>
+          </td>
+
+          <td>
+            <input type="text" id="startInput" size="22" />
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <label for="endInput">End: </label>
+          </td>
+
+          <td>
+            <input type="text" id="endInput" size="22" />
+          </td>
+
+          <td>
+            <button type="button" id="goButton" hidden>Go</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="park-list" id="npsListDiv"></div>
+
+    <div class="picture-container">
+      <div
+        class="picture-div"
+        style="padding-left: 0px"
+        id="picture-div-1"
+      ></div>
+
+      <div class="picture-div" id="picture-div-2"></div>
+
+      <div
+        class="picture-div"
+        style="padding-right: 0px"
+        id="picture-div-3"
+      ></div>
+    </div>
+
+    <div class="floating-panel-rnd panel-2"></div>
+
+    <div class="panel-content content-2">
+      <div class="title-container">
+        <div class="title" id="titleDisplay"></div>
+      </div>
+
+      <div class="distance-container">
+        <table>
+          <tr>
+            <td class="distance-td" id="distanceOutput"></td>
+
+            <td class="time-td" id="timeOutput"></td>
+          </tr>
+        </table>
+      </div>
+
+      <div>
+        <span style="font-size: 12px" id="description-information"></span>
+      </div>
+
+      <div>
+        <span style="font-size: 12px" id="weather-information"></span>
+      </div>
+    </div>
+
+    <div class="floating-panel-locdisp panel-locdisp"></div>
+
+    <div class="panel-content content-locdisp">
+      <table>
+        <tr>
+          <td>Detected location:</td>
+
+          <td id="latitude"></td>
+
+          <td id="longitude"></td>
+
+          <td style="padding-left: 15px;">
+            <button
+              type="button"
+              id="changeStartLocButton"
+              name="changeStartLocButton"
+            >
+              Change
+            </button>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="floating-panel-showlist show-list-panel"></div>
+
+    <div class="panel-content show-list-content">
+      <span>Show National Park List: </span>
+
+      <input
+        type="checkbox"
+        id="showListInput"
+        name="showListInput"
+        onclick="showListChange(this)"
+        checked
+      />
+    </div>
+
+    <div id="mapDiv"></div>

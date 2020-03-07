@@ -1,0 +1,41 @@
+mat-card {
+  background-color: rgba(122, 122, 122, 0.2);
+}
+
+mat-card-header {
+  display: block;
+  flex-direction: row;
+}
+
+.mat-raised-button.mat-blue, .mat-flat-button.mat-blue{
+  background-color: lightblue;
+  color: white;
+}
+
+.headshot {
+  background-image: url('../../../assets/images/home/CBA_0079.jpg');
+  background-size: cover;
+  height: 145px;
+  width: 145px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.about-me-desc {
+  display: flex;
+  align-self: center;
+}
+
+
+.about-me-card-header {
+  display: flex;
+  flex-direction: row;
+}
+
+.div-heading {
+  color: #1565c0;
+  font-weight: 300;
+  width: 100%;
+  height: auto;
+}
+

@@ -1,0 +1,13 @@
+.container{
+  background: url('../../../assets/images/sources-of-the-river/NotebookPaper1546x2000px.jpg') no-repeat
+    center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  padding-top: 15rem;
+}
+
+.indent {
+  margin-left: 12%;
+}

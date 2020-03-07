@@ -1,0 +1,30 @@
+.jumbotron {
+  min-height: 300px;
+  color: white;
+
+  background: url(../../../assets/images/cuyahoga-valley-np/CuyahogaValleyBackground.jpg)
+    no-repeat center center fixed !important;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+
+  padding-top: 25rem;
+  padding-bottom: 25rem;
+}
+
+.nationalpark-text-regular {
+  font-family: "NationalParkRegular";
+}
+
+.nationalpark-text-heavy {
+  font-family: "NationalParkHeavy";
+}
+
+.text-background {
+  border-radius: 25px;
+  border: 2px solid #000000;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 20px;
+  margin-bottom: 25px;
+}
