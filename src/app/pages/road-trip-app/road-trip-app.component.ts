@@ -1,10 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MapInfoWindow, MapMarker, GoogleMap } from '@angular/google-maps';
+import { Component, OnInit, ViewChild } from "@angular/core";
+import { MapInfoWindow, MapMarker, GoogleMap } from "@angular/google-maps";
 
 @Component({
-  selector: 'app-road-trip-app',
-  templateUrl: './road-trip-app.component.html',
-  styleUrls: ['./road-trip-app.component.css']
+  selector: "app-road-trip-app",
+  templateUrl: "./road-trip-app.component.html",
+  styleUrls: ["./road-trip-app.component.css"]
 })
 export class RoadTripAppComponent implements OnInit {
   @ViewChild(GoogleMap, { static: false }) map: GoogleMap;
@@ -14,70 +14,68 @@ export class RoadTripAppComponent implements OnInit {
   // directionsDisplay: google.maps.DirectionsRenderer;
 
   park_list: Array<any> = [
-    { name: 'Acadia', code: 'acad' },
-    { name: 'Arches', code: 'arch' },
-    { name: 'Badlands', code: 'badl' },
-    { name: 'Big Bend', code: 'bibe' },
-    { name: 'Biscayne', code: 'bisc' }
+    { name: "Acadia", code: "acad" },
+    { name: "Arches", code: "arch" },
+    { name: "Badlands", code: "badl" },
+    { name: "Big Bend", code: "bibe" },
+    { name: "Biscayne", code: "bisc" }
   ];
 
   // TODO: height is being forced and is not dyanmic
-  height = '100vh';
+  height = "100vh";
   zoom = 4;
-  center: google.maps.LatLngLiteral;
+  center = {
+    lat: 39,
+    lng: -95
+  };
   options: google.maps.MapOptions = {
     zoomControl: false,
     streetViewControl: false,
     mapTypeControl: false,
-    mapTypeId: 'terrain',
+    mapTypeId: "terrain",
     styles: [
       {
-        featureType: 'administrative',
-        elementType: 'labels',
-        stylers: [{ visibility: 'off' }]
+        featureType: "administrative",
+        elementType: "labels",
+        stylers: [{ visibility: "off" }]
       },
       {
-        featureType: 'administrative.land_parcel',
-        stylers: [{ visibility: 'off' }]
+        featureType: "administrative.land_parcel",
+        stylers: [{ visibility: "off" }]
       },
       {
-        featureType: 'administrative.neighborhood',
-        stylers: [{ visibility: 'off' }]
+        featureType: "administrative.neighborhood",
+        stylers: [{ visibility: "off" }]
       },
       {
-        featureType: 'administrative.province',
-        elementType: 'labels',
-        stylers: [{ visibility: 'on' }]
+        featureType: "administrative.province",
+        elementType: "labels",
+        stylers: [{ visibility: "on" }]
       },
       {
-        featureType: 'poi',
-        elementType: 'labels',
-        stylers: [{ visibility: 'off' }]
+        featureType: "poi",
+        elementType: "labels",
+        stylers: [{ visibility: "off" }]
       },
       {
-        featureType: 'road',
-        stylers: [{ visibility: 'off' }]
+        featureType: "road",
+        stylers: [{ visibility: "off" }]
       },
       {
-        featureType: 'water',
-        elementType: 'labels.text',
-        stylers: [{ visibility: 'off' }]
+        featureType: "water",
+        elementType: "labels.text",
+        stylers: [{ visibility: "off" }]
       }
     ]
   };
   markers = [];
-  infoContent = '';
+  infoContent = "";
+
+  userLocation: google.maps.LatLng;
 
   constructor() {}
 
   ngOnInit() {
-    // navigator.geolocation.getCurrentPosition(position => {
-    this.center = {
-      lat: 39,
-      lng: -95
-    };
-    // });
-
     // TODO: dynamically load a script tag instead of having it on index.html and being loaded everytime
     // const mapsScript = document.createElement('script')
     // mapsScript.setAttribute('async', '');
@@ -88,21 +86,52 @@ export class RoadTripAppComponent implements OnInit {
   // If we want to make sure that the references injected by @ViewChild are present, we should always write our initialization code using ngAfterViewInit().
   // Depending on the situation, the template references might already be present on ngOnInit(), but we shouldn't count on it.
   ngAfterViewInit() {
-    this.loadgeojson();
+    // Check if able to get user geolocation
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(position => {
+        //Place marker if location is detected
+        var LatLng = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+
+        let marker = new google.maps.Marker({
+          position: LatLng,
+          map: this.map._googleMap,
+          title: "Your Location"
+        });
+
+        this.userLocation = new google.maps.LatLng(
+          position.coords.latitude,
+          position.coords.longitude
+        );
+      });
+    } else {
+      //TODO Handle not getting user location
+      console.log(
+        "Unable to get geolocation - user may have denied permission"
+      );
+    }
+
+    this.loadGeojson();
   }
 
-  loadgeojson() {
+  loadGeojson() {
     this.park_list.forEach(park => {
       // Create data layer
       const data_layer = new google.maps.Data({ map: this.map._googleMap });
 
       const geojson =
-        '../../../assets/documents/road-trip-app/National Parks Geojson/' +
+        "../../../assets/documents/road-trip-app/National Parks Geojson/" +
         park.code +
-        '.geojson';
+        ".geojson";
 
-      data_layer.addListener('click', function(event) {
-        console.log(event);
+      data_layer.addListener("click", function(event) {
+        // Use getProperty function instead of linking directly to variables in the click event
+        console.log(event.feature.getProperty("UNIT_NAME"));
+        console.log(park.name);
+
+        //  loadDirectionsTo(park.name);
       });
 
       data_layer.loadGeoJson(geojson);
@@ -112,23 +141,30 @@ export class RoadTripAppComponent implements OnInit {
   }
 
   // Testing direction loading
-  loadDirections() {
+  loadDirectionsTo(parkName) {
     const directionsService = new google.maps.DirectionsService();
     const directionsDisplay = new google.maps.DirectionsRenderer({
       // Right now the underlying Google Map is the _googleMap property on the GoogleMap component.
       map: this.map._googleMap
     });
 
+    // const request = {
+    //   origin: new google.maps.LatLng(37.7699298, -122.4469157),
+    //   destination: new google.maps.LatLng(
+    //     37.7683909618184,
+    //     -122.51089453697205
+    //   ),
+    //   travelMode: google.maps.TravelMode.DRIVING
+    // };
+
     const request = {
-      origin: new google.maps.LatLng(37.7699298, -122.4469157),
-      destination: new google.maps.LatLng(
-        37.7683909618184,
-        -122.51089453697205
-      ),
+      origin: this.userLocation,
+      destination: parkName + "National Park",
       travelMode: google.maps.TravelMode.DRIVING
     };
+
     directionsService.route(request, function(response, status) {
-      if (status === 'OK') {
+      if (status === "OK") {
         // Display the route on the map.
         console.log(response);
         directionsDisplay.setDirections(response);
