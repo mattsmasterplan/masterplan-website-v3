@@ -10,7 +10,8 @@ export class RoadTripAppComponent implements OnInit {
   @ViewChild(GoogleMap, { static: false }) map: GoogleMap;
   @ViewChild(MapInfoWindow, { static: false }) info: MapInfoWindow;
 
-  // directionsService: google.maps.DirectionsService;
+  directionsService: google.maps.DirectionsService = new google.maps.DirectionsService();
+  //directionsService: google.maps.DirectionsService;
   // directionsDisplay: google.maps.DirectionsRenderer;
 
   park_list: Array<any> = [
@@ -20,6 +21,8 @@ export class RoadTripAppComponent implements OnInit {
     { name: "Big Bend", code: "bibe" },
     { name: "Biscayne", code: "bisc" }
   ];
+
+  displayMain: boolean = false;
 
   // TODO: height is being forced and is not dyanmic
   height = "100vh";
@@ -126,12 +129,12 @@ export class RoadTripAppComponent implements OnInit {
         park.code +
         ".geojson";
 
-      data_layer.addListener("click", function(event) {
+      data_layer.addListener("click", event => {
         // Use getProperty function instead of linking directly to variables in the click event
         console.log(event.feature.getProperty("UNIT_NAME"));
         console.log(park.name);
 
-        //  loadDirectionsTo(park.name);
+        this.loadDirectionsTo(park.name);
       });
 
       data_layer.loadGeoJson(geojson);
@@ -141,21 +144,12 @@ export class RoadTripAppComponent implements OnInit {
   }
 
   // Testing direction loading
-  loadDirectionsTo(parkName) {
-    const directionsService = new google.maps.DirectionsService();
+  loadDirectionsTo(parkName: string) {
+
     const directionsDisplay = new google.maps.DirectionsRenderer({
       // Right now the underlying Google Map is the _googleMap property on the GoogleMap component.
       map: this.map._googleMap
     });
-
-    // const request = {
-    //   origin: new google.maps.LatLng(37.7699298, -122.4469157),
-    //   destination: new google.maps.LatLng(
-    //     37.7683909618184,
-    //     -122.51089453697205
-    //   ),
-    //   travelMode: google.maps.TravelMode.DRIVING
-    // };
 
     const request = {
       origin: this.userLocation,
@@ -163,13 +157,18 @@ export class RoadTripAppComponent implements OnInit {
       travelMode: google.maps.TravelMode.DRIVING
     };
 
-    directionsService.route(request, function(response, status) {
+    this.directionsService.route(request, function(response, status) {
       if (status === "OK") {
         // Display the route on the map.
         console.log(response);
         directionsDisplay.setDirections(response);
+       // this.displayMain = true;
+
       }
     });
+
+
+
   }
 
   // zoomIn() {

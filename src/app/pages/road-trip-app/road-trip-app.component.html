@@ -111,24 +111,37 @@
     </div>
 
     <div id="mapDiv"></div> -->
+<div>
+  <div class="row">
+    <div class="col-lg-12">
+      <ng-template [ngIf]="displayMain">
+      <div class="panel-2">
+        <span>Distance:</span>
+        <br />
+        <span>Drive Time:</span>
+      </div>
 
+    </ng-template>
 
-    <google-map
-      [height]="height"
-      width="auto"
-      [zoom]="zoom"
-      [center]="center"
-      [options]="options"
-    >
-      <map-marker
-        #markerElem
-        *ngFor="let marker of markers"
-        [position]="marker.position"
-        [label]="marker.label"
-        [title]="marker.title"
-        [options]="marker.options"
+      <google-map
+        [height]="height"
+        width="auto"
+        [zoom]="zoom"
+        [center]="center"
+        [options]="options"
       >
-      </map-marker>
+        <map-marker
+          #markerElem
+          *ngFor="let marker of markers"
+          [position]="marker.position"
+          [label]="marker.label"
+          [title]="marker.title"
+          [options]="marker.options"
+        >
+        </map-marker>
 
-      <map-info-window>{{ infoContent }}</map-info-window>
-    </google-map>
+        <map-info-window>{{ infoContent }}</map-info-window>
+      </google-map>
+    </div>
+  </div>
+</div>
