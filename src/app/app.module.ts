@@ -29,6 +29,7 @@ import { SourcesOfTheRiverComponent } from './pages/sources-of-the-river/sources
 import { DancaseBuildComponent } from './pages/dancase-build/dancase-build.component';
 import { RoadTripAppComponent } from './pages/road-trip-app/road-trip-app.component';
 import { ImageDisplayDialogComponent } from './dialogs/image-display-dialog/image-display-dialog.component';
+import { AboutSiteComponent } from './pages/about-site/about-site.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { ImageDisplayDialogComponent } from './dialogs/image-display-dialog/imag
     SourcesOfTheRiverComponent,
     DancaseBuildComponent,
     RoadTripAppComponent,
-    ImageDisplayDialogComponent
+    ImageDisplayDialogComponent,
+    AboutSiteComponent
   ],
   imports: [
     BrowserModule,
