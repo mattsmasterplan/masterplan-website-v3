@@ -1,5 +1,6 @@
 google-map {
   min-height: 100%;
+  z-index: 0;
 }
 
 
