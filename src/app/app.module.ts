@@ -30,6 +30,7 @@ import { DancaseBuildComponent } from './pages/dancase-build/dancase-build.compo
 import { RoadTripAppComponent } from './pages/road-trip-app/road-trip-app.component';
 import { ImageDisplayDialogComponent } from './dialogs/image-display-dialog/image-display-dialog.component';
 import { AboutSiteComponent } from './pages/about-site/about-site.component';
+import { AboutMeComponent } from './pages/about-me/about-me.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { AboutSiteComponent } from './pages/about-site/about-site.component';
     DancaseBuildComponent,
     RoadTripAppComponent,
     ImageDisplayDialogComponent,
-    AboutSiteComponent
+    AboutSiteComponent,
+    AboutMeComponent
   ],
   imports: [
     BrowserModule,
