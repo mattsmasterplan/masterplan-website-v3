@@ -1,5 +1,6 @@
 import { AboutSiteComponent } from "./pages/about-site/about-site.component";
 import { AboutMeComponent } from "./pages/about-me/about-me.component";
+import { ContactComponent } from "./pages/contact/contact.component";
 import { CuyahogaValleyComponent } from "./pages/cuyahoga-valley/cuyahoga-valley.component";
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
@@ -25,7 +26,8 @@ const appRoutes: Routes = [
   { path: "dancase-build", component: DancaseBuildComponent },
   { path: "road-trip-app", component: RoadTripAppComponent },
   { path: "about-site", component: AboutSiteComponent },
-  { path: "about-me", component: AboutMeComponent }
+  { path: "about-me", component: AboutMeComponent },
+  { path: "contact", component: ContactComponent }
   //{ path: '**', component: PageNotFoundComponent }
 ];
 

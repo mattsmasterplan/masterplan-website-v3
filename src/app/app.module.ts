@@ -31,6 +31,7 @@ import { RoadTripAppComponent } from './pages/road-trip-app/road-trip-app.compon
 import { ImageDisplayDialogComponent } from './dialogs/image-display-dialog/image-display-dialog.component';
 import { AboutSiteComponent } from './pages/about-site/about-site.component';
 import { AboutMeComponent } from './pages/about-me/about-me.component';
+import { ContactComponent } from './pages/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { AboutMeComponent } from './pages/about-me/about-me.component';
     RoadTripAppComponent,
     ImageDisplayDialogComponent,
     AboutSiteComponent,
-    AboutMeComponent
+    AboutMeComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
