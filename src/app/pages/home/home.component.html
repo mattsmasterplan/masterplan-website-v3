@@ -22,9 +22,9 @@
 <div class="row">
   <div class="col-md-12">
     <mat-card>
-      <mat-card-header class="text-center div-heading">
-        <mat-card-title>
-          <h2 class="text-center div-heading">Visit National Parks</h2>
+      <mat-card-header class="text-center div-heading" style="justify-content:center;">
+        <mat-card-title class="text-center">
+          <h2 class="div-heading">Visit National Parks</h2>
         </mat-card-title>
       </mat-card-header>
       <mat-card-content class="text-white lead">
@@ -57,11 +57,9 @@
 <div class="row py-3">
   <div class="col-md-4">
     <mat-card class="maintain-height">
-      <mat-card-header class="text-center">
+      <mat-card-header class="text-center" style="justify-content:center;">
         <mat-card-title>
-          <a [routerLink]="['sources-of-the-river']" class="lead">
-            <h2 class="text-center div-heading"><u>Sources of the River</u></h2>
-          </a>
+          <h2 class="text-center div-heading">Sources of the River</h2>
         </mat-card-title>
       </mat-card-header>
       <mat-card-content>
@@ -69,7 +67,13 @@
           Notes from the true story of exploring unmapped wilderness and
           discovering the Columbia river.
         </p>
+        <p class="text-center">
+          <a [routerLink]="['sources-of-the-river']" class="lead">
+            See notes
+          </a>
+        </p>
       </mat-card-content>
+      <mat-card-footer>
       <mat-card-actions>
         <mat-chip-list class="text-center">
           <div class="flx-spacer"></div>
@@ -79,26 +83,30 @@
           <div class="flx-spacer"></div>
         </mat-chip-list>
       </mat-card-actions>
+    </mat-card-footer>
     </mat-card>
   </div>
   <div class="col-md-4">
     <mat-card class="maintain-height">
-      <mat-card-header>
+      <mat-card-header style="justify-content:center;">
         <mat-card-title>
-          <a href="/capstone-login.php" class="text-center lead">
-            <h2 class="text-center div-heading">
-              <img
-                src="../../../assets/images/home/20050@2x.png"
-                class="card-img"
-              />
-            </h2>
-          </a>
+          <h2 class="text-center div-heading">
+            <img
+              src="../../../assets/images/home/20050@2x.png"
+              class="card-img"
+            />
+          </h2>
         </mat-card-title>
       </mat-card-header>
       <mat-card-content>
         <p class="text-white lead">
           Scheduling app allowing users to request time off from their job using
           an interactive calendar.
+        </p>
+        <p class="text-center">
+          <a href="/capstone-login.php" class="lead">
+            Open app
+          </a>
         </p>
       </mat-card-content>
       <mat-card-actions>
@@ -126,19 +134,20 @@
   </div>
   <div class="col-md-4">
     <mat-card class="maintain-height">
-      <mat-card-header>
+      <mat-card-header style="justify-content:center;">
         <mat-card-title>
-          <a [routerLink]="['dancase-build']" class="text-center lead"
-            ><h2 class="text-center div-heading">
-              <u>Build Computers</u>
-            </h2>
-          </a>
+          <h2 class="text-center div-heading">
+            Build Computers
+          </h2>
         </mat-card-title>
       </mat-card-header>
       <mat-card-content>
         <p class="text-white lead">
           My current workstation, a small form factor computer. Dan Case
           featuring custom power supply cables.
+        </p>
+        <p class="text-center lead">
+          <a [routerLink]="['dancase-build']"> Details</a>
         </p>
       </mat-card-content>
       <mat-card-actions>
@@ -156,7 +165,7 @@
 <div class="row py-3">
   <div class="col-md-4">
     <mat-card class="maintain-height">
-      <mat-card-header class="text-center">
+      <mat-card-header class="text-center" style="justify-content:center;">
         <mat-card-title>
           <h2 class="text-center div-heading">
             OBDII Monitor
@@ -172,6 +181,9 @@
         <p class="text-white lead pt-3">
           Android app for communicating diagnostic data with vehicles using
           Bluetooth.
+        </p>
+        <p class="text-center text-white lead">
+          (coming soon)
         </p>
       </mat-card-content>
       <mat-card-actions>
@@ -191,11 +203,9 @@
   </div>
   <div class="col-md-4">
     <mat-card class="maintain-height">
-      <mat-card-header>
+      <mat-card-header style="justify-content:center;">
         <mat-card-title>
-          <!-- <a href="" class="text-center lead text-white"> -->
-          <h2 class="text-center div-heading"><u>Ends of the World</u></h2>
-          <!-- </a -->
+          <h2 class="text-center div-heading">Ends of the World</h2>
         </mat-card-title>
       </mat-card-header>
       <mat-card-content>
@@ -210,22 +220,23 @@
   </div>
   <div class="col-md-4">
     <mat-card class="maintain-height">
-      <mat-card-header>
+      <mat-card-header style="justify-content:center;">
         <mat-card-title>
-          <a [routerLink]="['road-trip-app']" class="text-center lead">
-            <h2 class="text-center div-heading">
-              <u> Road Trip App</u>
-            </h2>
-          </a>
+          <h2 class="text-center div-heading">
+            Road Trip App
+          </h2>
         </mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <img
-          src="../../../assets/images/home/national_park_app_screenshot.jpg"
-          class="card-img pt-2"
-          alt="..."
-        />
-        <p class="text-white lead pt-3">
+        <a [routerLink]="['road-trip-app']" class="text-center lead">
+          <img
+            src="../../../assets/images/home/national_park_app_screenshot.jpg"
+            class="card-img pt-2"
+            alt="..."
+          />
+          <p class="pt-2">Open app</p>
+        </a>
+        <p class="text-white lead">
           Allow current location for intended functionality.
         </p>
       </mat-card-content>
@@ -233,7 +244,7 @@
         <mat-chip-list class="text-center">
           <div class="flx-spacer"></div>
           <mat-chip selected color="primary">
-            JavaScript
+            TypeScript
           </mat-chip>
           <div class="flx-spacer"></div>
           <mat-chip selected color="primary">
