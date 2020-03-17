@@ -11,8 +11,7 @@ export class RoadTripAppComponent implements OnInit {
   @ViewChild(MapInfoWindow, { static: false }) info: MapInfoWindow;
 
   directionsService: google.maps.DirectionsService = new google.maps.DirectionsService();
-  //directionsService: google.maps.DirectionsService;
-  // directionsDisplay: google.maps.DirectionsRenderer;
+  directionsDisplay: google.maps.DirectionsRenderer = new google.maps.DirectionsRenderer();
 
   park_list: Array<any> = [
     { name: "Acadia", code: "acad" },
@@ -116,6 +115,16 @@ export class RoadTripAppComponent implements OnInit {
       );
     }
 
+    // Init direction renderer after map is created
+    this.directionsDisplay.setMap(this.map._googleMap);
+
+    //hide information divs
+    // casting the document query to type any in order to remove error with accessing .style
+    let x = document.querySelectorAll(".panel-2, .content-2") as any;
+    x.forEach(element => {
+      element.style.visibility = "hidden";
+    });
+
     this.loadGeojson();
   }
 
@@ -131,82 +140,50 @@ export class RoadTripAppComponent implements OnInit {
 
       data_layer.addListener("click", event => {
         // Use getProperty function instead of linking directly to variables in the click event
-        console.log(event.feature.getProperty("UNIT_NAME"));
-        console.log(park.name);
+        //console.log(event.feature.getProperty("UNIT_NAME"));
+        //console.log(park.name);
 
         this.loadDirectionsTo(park.name);
       });
 
       data_layer.loadGeoJson(geojson);
     });
-
-    // this.loadDirections();
   }
 
-  // Testing direction loading
   loadDirectionsTo(parkName: string) {
-
-    const directionsDisplay = new google.maps.DirectionsRenderer({
-      // Right now the underlying Google Map is the _googleMap property on the GoogleMap component.
-      map: this.map._googleMap
-    });
-
-    const request = {
+    // Build directions request
+    let request = {
       origin: this.userLocation,
-      destination: parkName + "National Park",
+      destination: parkName + " National Park",
       travelMode: google.maps.TravelMode.DRIVING
     };
 
-    this.directionsService.route(request, function(response, status) {
+    // Use the fat arrow function to keep directionDisplay in scope
+    // Casting to type any to remove error when accessing .request
+    this.directionsService.route(request, (response: any, status) => {
       if (status === "OK") {
         // Display the route on the map.
-        console.log(response);
-        directionsDisplay.setDirections(response);
-       // this.displayMain = true;
+        this.directionsDisplay.setDirections(response);
+        // this.displayMain = true;
 
+        //console.log(response);
+        //Set title
+        document.getElementById(
+          "titleDisplay"
+        ).innerHTML = response.request.destination.query.toString();
+
+        // Casting to type any to remove error when accessing .style
+        var x = document.querySelectorAll(".panel-2, .content-2") as any;
+        //Make information panel visible
+        x.forEach(element => {
+          element.style.visibility = "visible";
+        });
+        //Display distance and drive time
+        document.getElementById("distanceOutput").innerHTML =
+          "Distance: " + response.routes["0"].legs["0"].distance.text;
+        document.getElementById("timeOutput").innerHTML =
+          "Drive Time: " + response.routes["0"].legs["0"].duration.text;
       }
     });
-
-
-
   }
-
-  // zoomIn() {
-  //   if (this.zoom < this.options.maxZoom) this.zoom++;
-  // }
-
-  // zoomOut() {
-  //   if (this.zoom > this.options.minZoom) this.zoom--;
-  // }
-
-  // click(event: google.maps.MouseEvent) {
-  //   console.log(event);
-  // }
-
-  // logCenter() {
-  //   console.log(JSON.stringify(this.map.getCenter()));
-  // }
-
-  // addMarker() {
-  //   this.markers.push({
-  //     position: {
-  //       lat: this.center.lat + ((Math.random() - 0.5) * 2) / 10,
-  //       lng: this.center.lng + ((Math.random() - 0.5) * 2) / 10
-  //     },
-  //     label: {
-  //       color: "red",
-  //       text: "Marker label " + (this.markers.length + 1)
-  //     },
-  //     title: "Marker title " + (this.markers.length + 1),
-  //     info: "Marker info " + (this.markers.length + 1),
-  //     options: {
-  //       animation: google.maps.Animation.BOUNCE
-  //     }
-  //   });
-  // }
-
-  // openInfo(marker: MapMarker, content) {
-  //   this.infoContent = content;
-  //   this.info.open(marker);
-  // }
 }

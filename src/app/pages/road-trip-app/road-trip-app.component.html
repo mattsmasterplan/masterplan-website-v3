@@ -111,37 +111,78 @@
     </div>
 
     <div id="mapDiv"></div> -->
-<div>
-  <div class="row">
-    <div class="col-lg-12">
-      <ng-template [ngIf]="displayMain">
-      <div class="panel-2">
-        <span>Distance:</span>
-        <br />
-        <span>Drive Time:</span>
+
+<div class="row">
+  <div class="col-lg-12">
+    <!-- Location display panel -->
+    <div class="floating-panel-locdisp panel-locdisp"></div>
+
+    <div class="panel-content content-locdisp">
+      <table>
+        <tr>
+          <td>Detected location:</td>
+
+          <td id="latitude"></td>
+
+          <td id="longitude"></td>
+
+          <td style="padding-left: 15px;">
+            <button
+              type="button"
+              id="changeStartLocButton"
+              name="changeStartLocButton"
+            >
+              Change
+            </button>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+
+<!-- Title, distance, and drive time display panel -->
+<!-- <div class="panel-2"></div>
+
+    <div class="content-2 container">
+      <div class="row">
+        <div class="h2" id="titleDisplay"></div>
       </div>
 
-    </ng-template>
+      <div class="row">
+        <div class="lead" id="distanceOutput"></div>
+      </div>
+      <div class="row">
+        <div class="lead" id="timeOutput"></div>
+      </div>
 
-      <google-map
-        [height]="height"
-        width="auto"
-        [zoom]="zoom"
-        [center]="center"
-        [options]="options"
-      >
-        <map-marker
-          #markerElem
-          *ngFor="let marker of markers"
-          [position]="marker.position"
-          [label]="marker.label"
-          [title]="marker.title"
-          [options]="marker.options"
-        >
-        </map-marker>
+      <div>
+        <span style="font-size: 12px" id="description-information"></span>
+      </div>
 
-        <map-info-window>{{ infoContent }}</map-info-window>
-      </google-map>
+      <div>
+        <span style="font-size: 12px" id="weather-information"></span>
+      </div>
     </div>
   </div>
+</div> -->
+<google-map
+  [height]="height"
+  width="auto"
+  [zoom]="zoom"
+  [center]="center"
+  [options]="options"
+>
+  <map-marker
+    #markerElem
+    *ngFor="let marker of markers"
+    [position]="marker.position"
+    [label]="marker.label"
+    [title]="marker.title"
+    [options]="marker.options"
+  >
+  </map-marker>
+
+  <map-info-window>{{ infoContent }}</map-info-window>
+</google-map>
+</div>
 </div>
