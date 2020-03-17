@@ -1,32 +1,38 @@
+/* Overwrite global style since I am using a container on top of map element */
+.container {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
 google-map {
   min-height: 100%;
   z-index: 0;
 }
 
-div.floating-panel-locdisp {
+div.panel-locdisp {
+  position: absolute;
+  /* Set top as pixels to clear navbar */
+  /* top: 101px; */
+  left: 10%;
+  right: 10%;
+  /* width: 90%; */
+  height: auto;
   z-index: 1;
   background-color: rgb(244, 244, 244);
   opacity: 0.7;
   /* padding: 30px 25px; */
-  border-radius: 0px 10px 10px 0px;
-}
-
-div.panel-locdisp {
-  position: absolute;
-  top: 0%;
-  left: 0%;
-  width: 50%;
-  height: 30px;
-  margin-left: 15px;
+  border-radius: 10px 10px 10px 10px;
 }
 
 div.content-locdisp {
   z-index: 2;
   font-family: "Andika";
-  position: absolute;
-  top: 0%;
-  left: 0%;
-  padding: 0px 25px;
+  /* position: absolute; */
+  /* Set top as pixels to clear navbar */
+  /* top: 101px; */
+  /* left: 12%; */
+  /* padding: 0px 25px; */
+  /* padding-left: 2%; */
 }
 
 div.panel-2 {

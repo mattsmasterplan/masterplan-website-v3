@@ -21,7 +21,7 @@ export class RoadTripAppComponent implements OnInit {
     { name: "Biscayne", code: "bisc" }
   ];
 
-  displayMain: boolean = false;
+  displayMain = false;
 
   // TODO: height is being forced and is not dyanmic
   height = "100vh";
@@ -34,6 +34,7 @@ export class RoadTripAppComponent implements OnInit {
     zoomControl: false,
     streetViewControl: false,
     mapTypeControl: false,
+    fullscreenControl: false,
     mapTypeId: "terrain",
     styles: [
       {
@@ -91,13 +92,13 @@ export class RoadTripAppComponent implements OnInit {
     // Check if able to get user geolocation
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(position => {
-        //Place marker if location is detected
-        var LatLng = {
+        // Place marker if location is detected
+        const LatLng = {
           lat: position.coords.latitude,
           lng: position.coords.longitude
         };
 
-        let marker = new google.maps.Marker({
+        const marker = new google.maps.Marker({
           position: LatLng,
           map: this.map._googleMap,
           title: "Your Location"
@@ -109,7 +110,7 @@ export class RoadTripAppComponent implements OnInit {
         );
       });
     } else {
-      //TODO Handle not getting user location
+      // TODO Handle not getting user location
       console.log(
         "Unable to get geolocation - user may have denied permission"
       );
@@ -118,9 +119,9 @@ export class RoadTripAppComponent implements OnInit {
     // Init direction renderer after map is created
     this.directionsDisplay.setMap(this.map._googleMap);
 
-    //hide information divs
+    // hide information divs
     // casting the document query to type any in order to remove error with accessing .style
-    let x = document.querySelectorAll(".panel-2, .content-2") as any;
+    const x = document.querySelectorAll(".panel-2, .content-2") as any;
     x.forEach(element => {
       element.style.visibility = "hidden";
     });
@@ -140,8 +141,8 @@ export class RoadTripAppComponent implements OnInit {
 
       data_layer.addListener("click", event => {
         // Use getProperty function instead of linking directly to variables in the click event
-        //console.log(event.feature.getProperty("UNIT_NAME"));
-        //console.log(park.name);
+        // console.log(event.feature.getProperty("UNIT_NAME"));
+        // console.log(park.name);
 
         this.loadDirectionsTo(park.name);
       });
@@ -152,7 +153,7 @@ export class RoadTripAppComponent implements OnInit {
 
   loadDirectionsTo(parkName: string) {
     // Build directions request
-    let request = {
+    const request = {
       origin: this.userLocation,
       destination: parkName + " National Park",
       travelMode: google.maps.TravelMode.DRIVING
@@ -166,19 +167,19 @@ export class RoadTripAppComponent implements OnInit {
         this.directionsDisplay.setDirections(response);
         // this.displayMain = true;
 
-        //console.log(response);
-        //Set title
+        // console.log(response);
+        // Set title
         document.getElementById(
           "titleDisplay"
         ).innerHTML = response.request.destination.query.toString();
 
         // Casting to type any to remove error when accessing .style
-        var x = document.querySelectorAll(".panel-2, .content-2") as any;
-        //Make information panel visible
+        const x = document.querySelectorAll(".panel-2, .content-2") as any;
+        // Make information panel visible
         x.forEach(element => {
           element.style.visibility = "visible";
         });
-        //Display distance and drive time
+        // Display distance and drive time
         document.getElementById("distanceOutput").innerHTML =
           "Distance: " + response.routes["0"].legs["0"].distance.text;
         document.getElementById("timeOutput").innerHTML =
