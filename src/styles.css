@@ -27,3 +27,8 @@ body {
   background-size: cover;
   -o-background-size: cover;
 }
+
+.container {
+  padding-top: 25px;
+  padding-bottom: 130px;
+}
