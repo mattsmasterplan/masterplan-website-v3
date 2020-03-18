@@ -9,51 +9,73 @@ google-map {
   z-index: 0;
 }
 
-div.panel-locdisp {
+div.panel-location-display {
   position: absolute;
-  /* Set top as pixels to clear navbar */
-  /* top: 101px; */
   left: 10%;
   right: 10%;
-  /* width: 90%; */
   height: auto;
   z-index: 1;
   background-color: rgb(244, 244, 244);
   opacity: 0.7;
-  /* padding: 30px 25px; */
   border-radius: 10px 10px 10px 10px;
 }
 
-div.content-locdisp {
+div.content-location-display {
   z-index: 2;
   font-family: "Andika";
-  /* position: absolute; */
-  /* Set top as pixels to clear navbar */
-  /* top: 101px; */
-  /* left: 12%; */
-  /* padding: 0px 25px; */
-  /* padding-left: 2%; */
 }
 
-div.panel-2 {
+div.panel-main-display {
   position: absolute;
   z-index: 1;
   border-radius: 10px;
   background-color: rgb(244, 244, 244);
   opacity: 0.7;
-  top: 2%;
   right: 20%;
   left: 20%;
   width: 60%;
-  height: 210px;
+  height: auto;
+  margin-top: 12%;
 }
 
-div.content-2 {
-  position: absolute;
+div.content-main-display {
   z-index: 2;
-  top: 2%;
-  right: 20%;
-  left: 20%;
-  width: 60%;
-  height: 210px;
+}
+
+.park-list-item {
+  justify-content: flex-end;
+}
+
+.park-list {
+  position: absolute;
+  margin-top: 35%;
+  left: 0%;
+  height: 65%;
+  z-index: 2;
+  /* padding: 30px 25px; */
+  /* text-align: left; */
+  font-family: "Andika";
+  direction: rtl;
+  overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(255, 0, 0, 0.4);
 }

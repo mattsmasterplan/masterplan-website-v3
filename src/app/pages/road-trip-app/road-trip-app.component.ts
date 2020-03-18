@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, OnInit, ViewChild, ChangeDetectorRef } from "@angular/core";
 import { MapInfoWindow, MapMarker, GoogleMap } from "@angular/google-maps";
+import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: "app-road-trip-app",
@@ -13,18 +14,17 @@ export class RoadTripAppComponent implements OnInit {
   directionsService: google.maps.DirectionsService = new google.maps.DirectionsService();
   directionsDisplay: google.maps.DirectionsRenderer = new google.maps.DirectionsRenderer();
 
-  park_list: Array<any> = [
-    { name: "Acadia", code: "acad" },
-    { name: "Arches", code: "arch" },
-    { name: "Badlands", code: "badl" },
-    { name: "Big Bend", code: "bibe" },
-    { name: "Biscayne", code: "bisc" }
-  ];
+  park_list: Array<any> = [];
 
-  displayMain = false;
+  nationalParkJsonData: any;
+
+  title: String;
+  distance: String;
+  driveTime: String;
+  showMainDisplay: boolean;
 
   // TODO: height is being forced and is not dyanmic
-  height = "100vh";
+  height = "90vh";
   zoom = 4;
   center = {
     lat: 39,
@@ -76,7 +76,13 @@ export class RoadTripAppComponent implements OnInit {
 
   userLocation: google.maps.LatLng;
 
-  constructor() {}
+  constructor(
+    private changeDetector: ChangeDetectorRef,
+    private http: HttpClient
+  ) {
+    // hide main title display
+    this.showMainDisplay = false;
+  }
 
   ngOnInit() {
     // TODO: dynamically load a script tag instead of having it on index.html and being loaded everytime
@@ -84,6 +90,25 @@ export class RoadTripAppComponent implements OnInit {
     // mapsScript.setAttribute('async', '');
     // mapsScript.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyD5lEDjchAFa_evQYGkddz4Gdo8cFSUE6U';
     // document.head.appendChild(mapsScript);
+
+    // GET park information JSON
+    this.http
+      .get("../../../assets/documents/road-trip-app/NPS-park-data.json")
+      .subscribe(
+        (response: any) => {
+          // Assign json data to global variable
+          this.nationalParkJsonData = response.data;
+
+          //console.log(this.nationalParkJsonData);
+          // Store relevant data in global array
+          this.nationalParkJsonData.forEach(element => {
+            this.park_list.push({ name: element.name, code: element.parkCode });
+          });
+        },
+        err => {
+          console.log(err);
+        }
+      );
   }
 
   // If we want to make sure that the references injected by @ViewChild are present, we should always write our initialization code using ngAfterViewInit().
@@ -119,13 +144,6 @@ export class RoadTripAppComponent implements OnInit {
     // Init direction renderer after map is created
     this.directionsDisplay.setMap(this.map._googleMap);
 
-    // hide information divs
-    // casting the document query to type any in order to remove error with accessing .style
-    const x = document.querySelectorAll(".panel-2, .content-2") as any;
-    x.forEach(element => {
-      element.style.visibility = "hidden";
-    });
-
     this.loadGeojson();
   }
 
@@ -160,30 +178,25 @@ export class RoadTripAppComponent implements OnInit {
     };
 
     // Use the fat arrow function to keep directionDisplay in scope
-    // Casting to type any to remove error when accessing .request
+    // Casting response to type any to remove error when accessing .request
     this.directionsService.route(request, (response: any, status) => {
       if (status === "OK") {
         // Display the route on the map.
         this.directionsDisplay.setDirections(response);
-        // this.displayMain = true;
 
-        // console.log(response);
         // Set title
-        document.getElementById(
-          "titleDisplay"
-        ).innerHTML = response.request.destination.query.toString();
+        this.title = response.request.destination.query.toString();
 
-        // Casting to type any to remove error when accessing .style
-        const x = document.querySelectorAll(".panel-2, .content-2") as any;
-        // Make information panel visible
-        x.forEach(element => {
-          element.style.visibility = "visible";
-        });
-        // Display distance and drive time
-        document.getElementById("distanceOutput").innerHTML =
-          "Distance: " + response.routes["0"].legs["0"].distance.text;
-        document.getElementById("timeOutput").innerHTML =
-          "Drive Time: " + response.routes["0"].legs["0"].duration.text;
+        // Set distance and drive time
+        this.distance = response.routes["0"].legs["0"].distance.text;
+        this.driveTime = response.routes["0"].legs["0"].duration.text;
+
+        // Make main title panel visible
+        this.showMainDisplay = true;
+
+        // Angular won't detect the property change automatically because
+        // there is no async action to be detected.
+        this.changeDetector.detectChanges();
       }
     });
   }

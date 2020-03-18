@@ -111,14 +111,15 @@
     </div>
 
     <div id="mapDiv"></div> -->
+
 <div class="container">
   <div class="row text-center">
     <div class="col-lg-12">
       <!-- Location display panel -->
-      <div class="panel-locdisp">
-        <div class="panel-content content-locdisp">
-          <div>
-            <span>Detected location: </span>
+      <div class="panel-location-display">
+        <div class="panel-content content-location-display">
+          <div class="lead">
+            <span>Detected: </span>
 
             <span>{{ this.userLocation }}</span>
           </div>
@@ -126,33 +127,49 @@
       </div>
     </div>
   </div>
-</div>
+  <div *ngIf="this.showMainDisplay" class="row text-center">
+    <div class="col-lg-12">
+      <div class="panel-main-display">
+        <div class="content-main-display">
+          <div class="h2" id="titleDisplay">{{ this.title }}</div>
+          <br />
+          <div class="lead">Distance: {{ this.distance }}</div>
 
-<!-- Title, distance, and drive time display panel -->
-<!-- <div class="panel-2"></div>
+          <div class="lead">Drive Time: {{ this.driveTime }}</div>
 
-    <div class="content-2 container">
-      <div class="row">
-        <div class="h2" id="titleDisplay"></div>
-      </div>
+          <div>
+            <span style="font-size: 12px" id="description-information"></span>
+          </div>
 
-      <div class="row">
-        <div class="lead" id="distanceOutput"></div>
-      </div>
-      <div class="row">
-        <div class="lead" id="timeOutput"></div>
-      </div>
-
-      <div>
-        <span style="font-size: 12px" id="description-information"></span>
-      </div>
-
-      <div>
-        <span style="font-size: 12px" id="weather-information"></span>
+          <div>
+            <span style="font-size: 12px" id="weather-information"></span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div> -->
+
+  <!-- <div class="row">
+    <div class="col-md-4">
+
+    </div>
+  </div> -->
+</div>
+
+<mat-nav-list class="park-list" id="npsListDiv">
+  <a
+    mat-list-item
+    *ngFor="let park of park_list"
+    (click)="loadDirectionsTo(park.name)"
+  >
+    <!-- assigning the style in a div here because I am fighting
+      against the post proccessing mat list item classes -->
+    <div style="width: 100%; text-align: left;">{{ park.name }}</div>
+  </a>
+</mat-nav-list>
+
+<!-- Title, distance, and drive time display panel -->
+
 <google-map
   [height]="height"
   width="auto"
