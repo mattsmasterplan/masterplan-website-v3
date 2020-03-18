@@ -156,7 +156,8 @@
   </div> -->
 </div>
 
-<mat-nav-list class="park-list" id="npsListDiv">
+<!-- Bootstrap classes prevent list from showing on small screens -->
+<mat-nav-list class="park-list d-none d-sm-none d-md-block" id="npsListDiv">
   <a
     mat-list-item
     *ngFor="let park of park_list"

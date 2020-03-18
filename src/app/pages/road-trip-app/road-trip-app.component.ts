@@ -90,25 +90,6 @@ export class RoadTripAppComponent implements OnInit {
     // mapsScript.setAttribute('async', '');
     // mapsScript.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyD5lEDjchAFa_evQYGkddz4Gdo8cFSUE6U';
     // document.head.appendChild(mapsScript);
-
-    // GET park information JSON
-    this.http
-      .get("../../../assets/documents/road-trip-app/NPS-park-data.json")
-      .subscribe(
-        (response: any) => {
-          // Assign json data to global variable
-          this.nationalParkJsonData = response.data;
-
-          //console.log(this.nationalParkJsonData);
-          // Store relevant data in global array
-          this.nationalParkJsonData.forEach(element => {
-            this.park_list.push({ name: element.name, code: element.parkCode });
-          });
-        },
-        err => {
-          console.log(err);
-        }
-      );
   }
 
   // If we want to make sure that the references injected by @ViewChild are present, we should always write our initialization code using ngAfterViewInit().
@@ -144,12 +125,33 @@ export class RoadTripAppComponent implements OnInit {
     // Init direction renderer after map is created
     this.directionsDisplay.setMap(this.map._googleMap);
 
-    this.loadGeojson();
+    // GET park information JSON
+    this.http
+      .get("../../../assets/documents/road-trip-app/NPS-park-data.json")
+      .subscribe(
+        (response: any) => {
+          // Assign json data to global variable
+          this.nationalParkJsonData = response.data;
+
+          //console.log(this.nationalParkJsonData);
+          // Store relevant data in global array
+          this.nationalParkJsonData.forEach(element => {
+            this.park_list.push({ name: element.name, code: element.parkCode });
+          });
+
+          // Load GeoJson AFTER we have all the NPS park data stored
+          this.loadGeojson();
+        },
+        err => {
+          console.log(err);
+        }
+      );
   }
 
   loadGeojson() {
+    // For each park in the park list, load the GeoJson data layers based off the park code
     this.park_list.forEach(park => {
-      // Create data layer
+      //Create data layer
       const data_layer = new google.maps.Data({ map: this.map._googleMap });
 
       const geojson =
@@ -158,10 +160,6 @@ export class RoadTripAppComponent implements OnInit {
         ".geojson";
 
       data_layer.addListener("click", event => {
-        // Use getProperty function instead of linking directly to variables in the click event
-        // console.log(event.feature.getProperty("UNIT_NAME"));
-        // console.log(park.name);
-
         this.loadDirectionsTo(park.name);
       });
 
