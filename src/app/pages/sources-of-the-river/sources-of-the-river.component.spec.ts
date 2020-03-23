@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SourcesOfTheRiverComponent } from './sources-of-the-river.component';
+import {SourcesOfTheRiverComponent} from './sources-of-the-river.component';
 
 describe('SourcesOfTheRiverComponent', () => {
   let component: SourcesOfTheRiverComponent;
@@ -8,9 +8,8 @@ describe('SourcesOfTheRiverComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SourcesOfTheRiverComponent ]
-    })
-    .compileComponents();
+      declarations: [SourcesOfTheRiverComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { ImageDisplayDialogComponent } from './../../dialogs/image-display-dialog/image-display-dialog.component';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { MatCarousel, MatCarouselComponent } from '@ngmodule/material-carousel';
+import {Component, OnInit} from '@angular/core';
+import {ImageDisplayDialogComponent} from './../../dialogs/image-display-dialog/image-display-dialog.component';
+import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
+import {MatCarousel, MatCarouselComponent} from '@ngmodule/material-carousel';
 import {
   MatCarouselSlide,
   MatCarouselSlideComponent
@@ -14,11 +14,11 @@ import {
 })
 export class GreatBasinComponent implements OnInit {
   slides = [
-    { src: '../../../assets/images/great-basin/GreatBasinNP_1_600x600px.jpg' },
-    { src: '../../../assets/images/great-basin/GreatBasinNP_2_600x600px.jpg' },
-    { src: '../../../assets/images/great-basin/GreatBasinNP_3_600x600px.jpg' },
-    { src: '../../../assets/images/great-basin/GreatBasinNP_4_600x600px.jpg' },
-    { src: '../../../assets/images/great-basin/GreatBasinNP_5_602x602px.jpg' }
+    {src: '../../../assets/images/great-basin/GreatBasinNP_1_600x600px.jpg'},
+    {src: '../../../assets/images/great-basin/GreatBasinNP_2_600x600px.jpg'},
+    {src: '../../../assets/images/great-basin/GreatBasinNP_3_600x600px.jpg'},
+    {src: '../../../assets/images/great-basin/GreatBasinNP_4_600x600px.jpg'},
+    {src: '../../../assets/images/great-basin/GreatBasinNP_5_602x602px.jpg'}
   ];
 
   constructor(private dialog: MatDialog) {}

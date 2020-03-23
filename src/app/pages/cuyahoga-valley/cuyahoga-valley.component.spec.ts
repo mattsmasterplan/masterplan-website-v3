@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { CuyahogaValleyComponent } from './cuyahoga-valley.component';
+import {CuyahogaValleyComponent} from './cuyahoga-valley.component';
 
 describe('CuyahogaValleyComponent', () => {
   let component: CuyahogaValleyComponent;
@@ -8,9 +8,8 @@ describe('CuyahogaValleyComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CuyahogaValleyComponent ]
-    })
-    .compileComponents();
+      declarations: [CuyahogaValleyComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

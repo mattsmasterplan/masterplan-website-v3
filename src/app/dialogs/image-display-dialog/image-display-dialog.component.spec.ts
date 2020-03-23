@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ImageDisplayDialogComponent } from './image-display-dialog.component';
+import {ImageDisplayDialogComponent} from './image-display-dialog.component';
 
 describe('ImageDisplayDialogComponent', () => {
   let component: ImageDisplayDialogComponent;
@@ -8,9 +8,8 @@ describe('ImageDisplayDialogComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ImageDisplayDialogComponent ]
-    })
-    .compileComponents();
+      declarations: [ImageDisplayDialogComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

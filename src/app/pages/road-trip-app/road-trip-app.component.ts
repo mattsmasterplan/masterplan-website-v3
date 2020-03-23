@@ -1,15 +1,15 @@
-import { Component, OnInit, ViewChild, ChangeDetectorRef } from "@angular/core";
-import { MapInfoWindow, MapMarker, GoogleMap } from "@angular/google-maps";
-import { HttpClient } from "@angular/common/http";
+import {Component, OnInit, ViewChild, ChangeDetectorRef} from '@angular/core';
+import {MapInfoWindow, MapMarker, GoogleMap} from '@angular/google-maps';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
-  selector: "app-road-trip-app",
-  templateUrl: "./road-trip-app.component.html",
-  styleUrls: ["./road-trip-app.component.css"]
+  selector: 'app-road-trip-app',
+  templateUrl: './road-trip-app.component.html',
+  styleUrls: ['./road-trip-app.component.css']
 })
 export class RoadTripAppComponent implements OnInit {
-  @ViewChild(GoogleMap, { static: false }) map: GoogleMap;
-  @ViewChild(MapInfoWindow, { static: false }) info: MapInfoWindow;
+  @ViewChild(GoogleMap, {static: false}) map: GoogleMap;
+  @ViewChild(MapInfoWindow, {static: false}) info: MapInfoWindow;
 
   directionsService: google.maps.DirectionsService = new google.maps.DirectionsService();
   directionsDisplay: google.maps.DirectionsRenderer = new google.maps.DirectionsRenderer();
@@ -24,7 +24,7 @@ export class RoadTripAppComponent implements OnInit {
   showMainDisplay: boolean;
 
   // TODO: height is being forced and is not dyanmic
-  height = "90vh";
+  height = '90vh';
   zoom = 4;
   center = {
     lat: 39,
@@ -35,44 +35,44 @@ export class RoadTripAppComponent implements OnInit {
     streetViewControl: false,
     mapTypeControl: false,
     fullscreenControl: false,
-    mapTypeId: "terrain",
+    mapTypeId: 'terrain',
     styles: [
       {
-        featureType: "administrative",
-        elementType: "labels",
-        stylers: [{ visibility: "off" }]
+        featureType: 'administrative',
+        elementType: 'labels',
+        stylers: [{visibility: 'off'}]
       },
       {
-        featureType: "administrative.land_parcel",
-        stylers: [{ visibility: "off" }]
+        featureType: 'administrative.land_parcel',
+        stylers: [{visibility: 'off'}]
       },
       {
-        featureType: "administrative.neighborhood",
-        stylers: [{ visibility: "off" }]
+        featureType: 'administrative.neighborhood',
+        stylers: [{visibility: 'off'}]
       },
       {
-        featureType: "administrative.province",
-        elementType: "labels",
-        stylers: [{ visibility: "on" }]
+        featureType: 'administrative.province',
+        elementType: 'labels',
+        stylers: [{visibility: 'on'}]
       },
       {
-        featureType: "poi",
-        elementType: "labels",
-        stylers: [{ visibility: "off" }]
+        featureType: 'poi',
+        elementType: 'labels',
+        stylers: [{visibility: 'off'}]
       },
       {
-        featureType: "road",
-        stylers: [{ visibility: "off" }]
+        featureType: 'road',
+        stylers: [{visibility: 'off'}]
       },
       {
-        featureType: "water",
-        elementType: "labels.text",
-        stylers: [{ visibility: "off" }]
+        featureType: 'water',
+        elementType: 'labels.text',
+        stylers: [{visibility: 'off'}]
       }
     ]
   };
   markers = [];
-  infoContent = "";
+  infoContent = '';
 
   userLocation: google.maps.LatLng;
 
@@ -107,7 +107,7 @@ export class RoadTripAppComponent implements OnInit {
         const marker = new google.maps.Marker({
           position: LatLng,
           map: this.map._googleMap,
-          title: "Your Location"
+          title: 'Your Location'
         });
 
         this.userLocation = new google.maps.LatLng(
@@ -118,7 +118,7 @@ export class RoadTripAppComponent implements OnInit {
     } else {
       // TODO Handle not getting user location
       console.log(
-        "Unable to get geolocation - user may have denied permission"
+        'Unable to get geolocation - user may have denied permission'
       );
     }
 
@@ -127,7 +127,7 @@ export class RoadTripAppComponent implements OnInit {
 
     // GET park information JSON
     this.http
-      .get("../../../assets/documents/road-trip-app/NPS-park-data.json")
+      .get('../../../assets/documents/road-trip-app/NPS-park-data.json')
       .subscribe(
         (response: any) => {
           // Assign json data to global variable
@@ -136,7 +136,7 @@ export class RoadTripAppComponent implements OnInit {
           //console.log(this.nationalParkJsonData);
           // Store relevant data in global array
           this.nationalParkJsonData.forEach(element => {
-            this.park_list.push({ name: element.name, code: element.parkCode });
+            this.park_list.push({name: element.name, code: element.parkCode});
           });
 
           // Load GeoJson AFTER we have all the NPS park data stored
@@ -152,14 +152,14 @@ export class RoadTripAppComponent implements OnInit {
     // For each park in the park list, load the GeoJson data layers based off the park code
     this.park_list.forEach(park => {
       //Create data layer
-      const data_layer = new google.maps.Data({ map: this.map._googleMap });
+      const data_layer = new google.maps.Data({map: this.map._googleMap});
 
       const geojson =
-        "../../../assets/documents/road-trip-app/National Parks Geojson/" +
+        '../../../assets/documents/road-trip-app/National Parks Geojson/' +
         park.code +
-        ".geojson";
+        '.geojson';
 
-      data_layer.addListener("click", event => {
+      data_layer.addListener('click', event => {
         this.loadDirectionsTo(park.name);
       });
 
@@ -171,14 +171,14 @@ export class RoadTripAppComponent implements OnInit {
     // Build directions request
     const request = {
       origin: this.userLocation,
-      destination: parkName + " National Park",
+      destination: parkName + ' National Park',
       travelMode: google.maps.TravelMode.DRIVING
     };
 
     // Use the fat arrow function to keep directionDisplay in scope
     // Casting response to type any to remove error when accessing .request
     this.directionsService.route(request, (response: any, status) => {
-      if (status === "OK") {
+      if (status === 'OK') {
         // Display the route on the map.
         this.directionsDisplay.setDirections(response);
 
@@ -186,8 +186,8 @@ export class RoadTripAppComponent implements OnInit {
         this.title = response.request.destination.query.toString();
 
         // Set distance and drive time
-        this.distance = response.routes["0"].legs["0"].distance.text;
-        this.driveTime = response.routes["0"].legs["0"].duration.text;
+        this.distance = response.routes['0'].legs['0'].distance.text;
+        this.driveTime = response.routes['0'].legs['0'].duration.text;
 
         // Make main title panel visible
         this.showMainDisplay = true;

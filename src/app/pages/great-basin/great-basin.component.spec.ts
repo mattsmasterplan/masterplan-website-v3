@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { GreatBasinComponent } from './great-basin.component';
+import {GreatBasinComponent} from './great-basin.component';
 
 describe('GreatBasinComponent', () => {
   let component: GreatBasinComponent;
@@ -8,9 +8,8 @@ describe('GreatBasinComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GreatBasinComponent ]
-    })
-    .compileComponents();
+      declarations: [GreatBasinComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

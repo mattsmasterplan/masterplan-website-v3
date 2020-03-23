@@ -1,6 +1,6 @@
-import { ImageDisplayDialogComponent } from './../../dialogs/image-display-dialog/image-display-dialog.component';
-import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import {ImageDisplayDialogComponent} from './../../dialogs/image-display-dialog/image-display-dialog.component';
+import {Component, OnInit} from '@angular/core';
+import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-dancase-build',

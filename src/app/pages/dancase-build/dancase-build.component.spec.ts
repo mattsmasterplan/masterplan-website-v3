@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { DancaseBuildComponent } from './dancase-build.component';
+import {DancaseBuildComponent} from './dancase-build.component';
 
 describe('DancaseBuildComponent', () => {
   let component: DancaseBuildComponent;
@@ -8,9 +8,8 @@ describe('DancaseBuildComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DancaseBuildComponent ]
-    })
-    .compileComponents();
+      declarations: [DancaseBuildComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

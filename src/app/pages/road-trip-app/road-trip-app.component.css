@@ -22,7 +22,7 @@ div.panel-location-display {
 
 div.content-location-display {
   z-index: 2;
-  font-family: "Andika";
+  font-family: 'Andika';
 }
 
 div.panel-main-display {
@@ -54,7 +54,7 @@ div.content-main-display {
   z-index: 2;
   /* padding: 30px 25px; */
   /* text-align: left; */
-  font-family: "Andika";
+  font-family: 'Andika';
   direction: rtl;
   overflow-y: scroll;
 }

@@ -1,6 +1,6 @@
 mat-card {
   background-color: rgba(122, 122, 122, 0.2);
-  display:flex;
+  display: flex;
   flex-direction: column;
 }
 
@@ -14,14 +14,12 @@ mat-card-header {
   flex-shrink: 0;
 }
 
-
-
 .maintain-height {
-
   min-height: 400px;
 }
 
-.mat-raised-button.mat-blue, .mat-flat-button.mat-blue{
+.mat-raised-button.mat-blue,
+.mat-flat-button.mat-blue {
   background-color: lightblue;
   color: white;
 }
@@ -40,7 +38,6 @@ mat-card-header {
   align-self: center;
 }
 
-
 .about-me-card-header {
   display: flex;
   flex-direction: row;
@@ -52,4 +49,3 @@ mat-card-header {
   width: 100%;
   height: auto;
 }
-
