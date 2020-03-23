@@ -2,9 +2,9 @@
   <h1 class="text-white text-center pt-5">
     Build Info for MattsMasterPlan.com
   </h1>
-  <div class="row pt-5">
-    <div class="col-md-12">
-      <mat-card class="text-white">
+  <div class="row pt-5" style="min-height: 600px;">
+    <div class="col-md-6">
+      <mat-card class="text-white maintain-height">
         <mat-card-header>
           <mat-card-title>
             <h3>Dependencies</h3>
@@ -17,6 +17,46 @@
               <a [href]="dep.link" matLine>{{ dep.version }}</a>
             </mat-list-item>
           </mat-list>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="col-md-6">
+      <mat-card class="text-white maintain-height">
+        <mat-card-header>
+          <mat-card-title>
+            <h3>ngFor with material design list</h3>
+          </mat-card-title>
+          <mat-card-subtitle class="text-white lead">
+            Generating the content on the left
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <h5>app.component.html</h5>
+          <pre>
+  <code>
+    <span style="color: #65b2ff">&lt;mat-list compact&gt;</span>
+    <span style="color: #65b2ff; margin-left: 20px;">&lt;mat-list-item</span> <span style="color: #78ffff">&#42;ngFor=</span><span style="color: #ddbb88">"</span><span style="color: #65b2ff">let</span> <span style="color: #78ffff">dep</span> <span style="color: #65b2ff">of</span> <span style="color: #78ffff">dependencies</span><span style="color: #ddbb88">"</span><span style="color: #65b2ff">></span>
+    <span style="color: #22aa44; margin-left: 40px;">&lt;!-- For lists that require multiple lines per item,
+              annotate each line with a matLine attribute. --&gt;</span>
+    <span style="color: #65b2ff; margin-left: 40px;">&lt;h3</span> <span style="color: #78ffff">matLine</span><span style="color: #65b2ff">></span>{{'{'}}{{'{'}} <span style="color: #78ffff">dep.name</span> {{'}'}}{{'}'}}<span style="color: #65b2ff">&lt;/h3></span>
+    <span style="color: #65b2ff; margin-left: 40px;">&lt;a</span> <span style="color: #78ffff">matLine</span> <span style="color: #78ffff">&#91;href&#93;=</span><span style="color: #ddbb88">"</span><span style="color: #78ffff">dep.link</span><span style="color: #ddbb88">"</span><span style="color: #65b2ff">></span> {{'{'}}{{'{'}} <span style="color: #78ffff">dep.version</span> {{'}'}}{{'}'}}<span style="color: #65b2ff">&lt;/a></span>
+    <span style="color: #65b2ff; margin-left: 20px;">&lt;/mat-list-item></span>
+    <span style="color: #65b2ff">&lt;/mat-list></span>
+  </code>
+  </pre>
+          <h5>app.component.ts</h5>
+          <pre>
+  <code>
+    <span style="color: #65b2ff">this</span><span style="color: #78ffff">.dependencies =</span> [
+    <span style="margin-left: 20px;">{{'{'}}</span>
+    <span style="color: #78ffff; margin-left: 40px;">name:</span> <span style="color: #ddbb88">'Angular'</span>,
+    <span style="color: #78ffff; margin-left: 40px;">version:</span> <span style="color: #ddbb88">'9.0.5'</span>,
+    <span style="color: #78ffff; margin-left: 40px;">link:</span> <span style="color: #ddbb88">'https://www.npmjs.com/package/@angular/core'</span>
+    <span style="margin-left: 20px;">{{'}'}},</span>
+    ...
+    ];
+  </code>
+  </pre>
         </mat-card-content>
       </mat-card>
     </div>

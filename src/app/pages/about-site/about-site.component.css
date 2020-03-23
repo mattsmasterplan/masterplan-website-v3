@@ -1,3 +1,17 @@
 mat-card {
   background-color: rgba(122, 122, 122, 0.2);
 }
+
+pre {
+  background-color: #182025;
+  border-radius: 15px;
+  font-size: small;
+}
+
+code {
+  color: white;
+}
+
+.maintain-height {
+  min-height: 650px;
+}

@@ -51,6 +51,11 @@ export class AboutSiteComponent implements OnInit {
         name: 'Bootstrap',
         version: '4.4.1',
         link: 'https://www.getbootstrap.com'
+      },
+      {
+        name: 'Prettier',
+        version: '2.0.1',
+        link: 'https://www.prettier.io/'
       }
     ];
   }
