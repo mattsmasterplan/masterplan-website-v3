@@ -15,3 +15,27 @@ code {
 .maintain-height {
   min-height: 650px;
 }
+
+.code-tag {
+  color: #65b2ff;
+}
+
+.code-tag-light {
+  color: #78ffff;
+}
+
+.code-indent-ln1 {
+  margin-left: 20px;
+}
+
+.code-indent-ln2 {
+  margin-left: 40px;
+}
+
+.code-comment {
+  color: #22aa44;
+}
+
+.code-highlight {
+  color: #ddbb88;
+}

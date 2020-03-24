@@ -2,7 +2,7 @@
   <h1 class="text-white text-center pt-5">
     Build Info for MattsMasterPlan.com
   </h1>
-  <div class="row pt-5" style="min-height: 600px;">
+  <div class="row pt-5">
     <div class="col-md-6">
       <mat-card class="text-white maintain-height">
         <mat-card-header>
@@ -27,32 +27,32 @@
             <h3>ngFor with material design list</h3>
           </mat-card-title>
           <mat-card-subtitle class="text-white lead">
-            Generating the content on the left
+            Generating the dependency list
           </mat-card-subtitle>
         </mat-card-header>
-        <mat-card-content>
+        <mat-card-content class="pl-3">
           <h5>app.component.html</h5>
           <pre>
   <code>
-    <span style="color: #65b2ff">&lt;mat-list compact&gt;</span>
-    <span style="color: #65b2ff; margin-left: 20px;">&lt;mat-list-item</span> <span style="color: #78ffff">&#42;ngFor=</span><span style="color: #ddbb88">"</span><span style="color: #65b2ff">let</span> <span style="color: #78ffff">dep</span> <span style="color: #65b2ff">of</span> <span style="color: #78ffff">dependencies</span><span style="color: #ddbb88">"</span><span style="color: #65b2ff">></span>
-    <span style="color: #22aa44; margin-left: 40px;">&lt;!-- For lists that require multiple lines per item,
+    <span class="code-tag">&lt;mat-list compact&gt;</span>
+    <span class="code-tag code-indent-ln1">&lt;mat-list-item</span> <span class="code-tag-light">&#42;ngFor=</span><span class="code-highlight">"</span><span class="code-tag">let</span> <span class="code-tag-light">dep</span> <span class="code-tag">of</span> <span class="code-tag-light">dependencies</span><span class="code-highlight">"</span><span class="code-tag">></span>
+    <span class="code-comment code-indent-ln2">&lt;!-- For lists that require multiple lines per item,
               annotate each line with a matLine attribute. --&gt;</span>
-    <span style="color: #65b2ff; margin-left: 40px;">&lt;h3</span> <span style="color: #78ffff">matLine</span><span style="color: #65b2ff">></span>{{'{'}}{{'{'}} <span style="color: #78ffff">dep.name</span> {{'}'}}{{'}'}}<span style="color: #65b2ff">&lt;/h3></span>
-    <span style="color: #65b2ff; margin-left: 40px;">&lt;a</span> <span style="color: #78ffff">matLine</span> <span style="color: #78ffff">&#91;href&#93;=</span><span style="color: #ddbb88">"</span><span style="color: #78ffff">dep.link</span><span style="color: #ddbb88">"</span><span style="color: #65b2ff">></span> {{'{'}}{{'{'}} <span style="color: #78ffff">dep.version</span> {{'}'}}{{'}'}}<span style="color: #65b2ff">&lt;/a></span>
-    <span style="color: #65b2ff; margin-left: 20px;">&lt;/mat-list-item></span>
-    <span style="color: #65b2ff">&lt;/mat-list></span>
+    <span class="code-tag code-indent-ln2">&lt;h3</span> <span class="code-tag-light">matLine</span><span class="code-tag">></span>{{'{'}}{{'{'}} <span class="code-tag-light">dep.name</span> {{'}'}}{{'}'}}<span class="code-tag">&lt;/h3></span>
+    <span class="code-tag code-indent-ln2">&lt;a</span> <span class="code-tag-light">matLine</span> <span class="code-tag-light">&#91;href&#93;=</span><span class="code-highlight">"</span><span class="code-tag-light">dep.link</span><span class="code-highlight">"</span><span class="code-tag">></span> {{'{'}}{{'{'}} <span class="code-tag-light">dep.version</span> {{'}'}}{{'}'}}<span class="code-tag">&lt;/a></span>
+    <span class="code-tag code-indent-ln1">&lt;/mat-list-item></span>
+    <span class="code-tag">&lt;/mat-list></span>
   </code>
   </pre>
           <h5>app.component.ts</h5>
           <pre>
   <code>
-    <span style="color: #65b2ff">this</span><span style="color: #78ffff">.dependencies =</span> [
-    <span style="margin-left: 20px;">{{'{'}}</span>
-    <span style="color: #78ffff; margin-left: 40px;">name:</span> <span style="color: #ddbb88">'Angular'</span>,
-    <span style="color: #78ffff; margin-left: 40px;">version:</span> <span style="color: #ddbb88">'9.0.5'</span>,
-    <span style="color: #78ffff; margin-left: 40px;">link:</span> <span style="color: #ddbb88">'https://www.npmjs.com/package/@angular/core'</span>
-    <span style="margin-left: 20px;">{{'}'}},</span>
+    <span class="code-tag">this</span><span class="code-tag-light">.dependencies =</span> [
+    <span class="code-indent-ln1">{{'{'}}</span>
+    <span class="code-tag-light code-indent-ln2">name:</span> <span class="code-highlight">'Angular'</span>,
+    <span class="code-tag-light code-indent-ln2">version:</span> <span class="code-highlight">'9.0.5'</span>,
+    <span class="code-tag-light code-indent-ln2">link:</span> <span class="code-highlight">'https://www.npmjs.com/package/@angular/core'</span>
+    <span class="code-indent-ln1">{{'}'}},</span>
     ...
     ];
   </code>
@@ -65,12 +65,12 @@
     <div class="col-md-12">
       <mat-card class="text-white">
         <mat-card-content class="lead py-5">
-          MattsMasterPlan.com Version 3 is an Angular 9 web application. Each webpage is a
-          TypeScript component. The styling is done using Angular Material
-          Design and Bootstrap is used to maintain a mobile friendly structure.
-          Some applications on this site use PHP and MySQL on the backend to
-          interact with a database. The source code of this site is available on
-          my GitHub.
+          MattsMasterPlan.com is an Angular 9 web application with each webpage
+          being a TypeScript component. The styling is done using Angular
+          Material Design with Bootstrap used to maintain mobile compatibility.
+          Applications on this site use PHP and MySQL on the backend to interact
+          with a database. All source code for this site is available on my
+          GitHub.
         </mat-card-content>
       </mat-card>
     </div>
