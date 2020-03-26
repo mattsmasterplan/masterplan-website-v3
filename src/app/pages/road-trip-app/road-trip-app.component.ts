@@ -1,6 +1,11 @@
-import { Component, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ChangeDetectorRef, Input } from '@angular/core';
 import { MapInfoWindow, MapMarker, GoogleMap } from '@angular/google-maps';
 import { HttpClient } from '@angular/common/http';
+
+// Import NPS Park Data from json file as an object
+import { data as parkData } from '../../../assets/documents/road-trip-app/NPS-park-data.json';
+
+
 
 @Component({
   selector: 'app-road-trip-app',
@@ -11,12 +16,12 @@ export class RoadTripAppComponent implements OnInit {
   @ViewChild(GoogleMap, { static: false }) map: GoogleMap;
   @ViewChild(MapInfoWindow, { static: false }) info: MapInfoWindow;
 
+  @Input() parkData: any;
+
   directionsService: google.maps.DirectionsService = new google.maps.DirectionsService();
   directionsDisplay: google.maps.DirectionsRenderer = new google.maps.DirectionsRenderer();
-
   park_list: Array<any> = [];
-
-  nationalParkJsonData: any;
+  nationalParkJsonData: JSON;
 
 
   title: String;
@@ -125,38 +130,30 @@ export class RoadTripAppComponent implements OnInit {
     // Init direction renderer after map is created
     this.directionsDisplay.setMap(this.map._googleMap);
 
-    // GET park information JSON
-    this.http
-      .get('../../../assets/documents/road-trip-app/NPS-park-data.json')
-      .subscribe(
-        (response: any) => {
-          // Assign json data to global variable
-          this.nationalParkJsonData = response.data;
 
-          //console.log(this.nationalParkJsonData);
-          // Store relevant data in global array
-          this.nationalParkJsonData.forEach(element => {
-            this.park_list.push({ name: element.name, code: element.parkCode, description: element.description });
-          });
+    // Build park list like this for now
+    // TODO get *ngFor in html working with parkData object as opposed to using park_list
+    parkData.forEach(park => {
+      console.log(park);
+      this.park_list.push({ "name": park.name, "description": park.description });
+    });
 
-          // Load GeoJson AFTER we have all the NPS park data stored
-          this.loadGeojson();
-        },
-        err => {
-          console.log(err);
-        }
-      );
+
+    console.log(this.park_list);
+
+    // Load GeoJson after everything else is initialized
+    this.loadGeojson();
   }
 
   loadGeojson() {
     // For each park in the park list, load the GeoJson data layers based off the park code
-    this.park_list.forEach(park => {
+    parkData.forEach(park => {
       //Create data layer
       const data_layer = new google.maps.Data({ map: this.map._googleMap });
 
       const geojson =
         '../../../assets/documents/road-trip-app/National Parks Geojson/' +
-        park.code +
+        park.parkCode +
         '.geojson';
 
       data_layer.addListener('click', event => {
