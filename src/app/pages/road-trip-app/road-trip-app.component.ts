@@ -1,15 +1,11 @@
-import {
-  Component,
-  OnInit,
-  ViewChild,
-  ChangeDetectorRef,
-  Input
-} from '@angular/core';
-import {MapInfoWindow, MapMarker, GoogleMap} from '@angular/google-maps';
-import {HttpClient} from '@angular/common/http';
+import { Component, OnInit, ViewChild, ChangeDetectorRef, Input } from '@angular/core';
+import { MapInfoWindow, MapMarker, GoogleMap } from '@angular/google-maps';
+import { HttpClient } from '@angular/common/http';
 
 // Import NPS Park Data from json file as an object
-import {data as parkData} from '../../../assets/documents/road-trip-app/NPS-park-data.json';
+import { data as parkData } from '../../../assets/documents/road-trip-app/NPS-park-data.json';
+
+
 
 @Component({
   selector: 'app-road-trip-app',
@@ -17,8 +13,9 @@ import {data as parkData} from '../../../assets/documents/road-trip-app/NPS-park
   styleUrls: ['./road-trip-app.component.css']
 })
 export class RoadTripAppComponent implements OnInit {
-  @ViewChild(GoogleMap, {static: false}) map: GoogleMap;
-  @ViewChild(MapInfoWindow, {static: false}) info: MapInfoWindow;
+  @ViewChild(GoogleMap, { static: false }) map: GoogleMap;
+  @ViewChild(MapInfoWindow, { static: false }) info: MapInfoWindow;
+
 
   // TODO this is a workaround for binding the imported parkData object
   // with an object available inside the component
@@ -29,6 +26,7 @@ export class RoadTripAppComponent implements OnInit {
   directionsDisplay: google.maps.DirectionsRenderer = new google.maps.DirectionsRenderer();
 
   nationalParkJsonData: JSON;
+
 
   title: String;
   distance: String;
@@ -53,38 +51,39 @@ export class RoadTripAppComponent implements OnInit {
       {
         featureType: 'administrative',
         elementType: 'labels',
-        stylers: [{visibility: 'off'}]
+        stylers: [{ visibility: 'off' }]
       },
       {
         featureType: 'administrative.land_parcel',
-        stylers: [{visibility: 'off'}]
+        stylers: [{ visibility: 'off' }]
       },
       {
         featureType: 'administrative.neighborhood',
-        stylers: [{visibility: 'off'}]
+        stylers: [{ visibility: 'off' }]
       },
       {
         featureType: 'administrative.province',
         elementType: 'labels',
-        stylers: [{visibility: 'on'}]
+        stylers: [{ visibility: 'on' }]
       },
       {
         featureType: 'poi',
         elementType: 'labels',
-        stylers: [{visibility: 'off'}]
+        stylers: [{ visibility: 'off' }]
       },
       {
         featureType: 'road',
-        stylers: [{visibility: 'off'}]
+        stylers: [{ visibility: 'off' }]
       },
       {
         featureType: 'water',
         elementType: 'labels.text',
-        stylers: [{visibility: 'off'}]
+        stylers: [{ visibility: 'off' }]
       }
     ]
   };
   markers = [];
+
 
   userLocation: google.maps.LatLng;
 
@@ -111,16 +110,14 @@ export class RoadTripAppComponent implements OnInit {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(position => {
         // Place marker if location is detected
-        this.markers.push(
-          new google.maps.Marker({
-            position: {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            },
-            map: this.map._googleMap,
-            title: 'Your Location'
-          })
-        );
+        this.markers.push(new google.maps.Marker({
+          position: {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          },
+          map: this.map._googleMap,
+          title: 'Your Location'
+        }));
         // Store user location in outer scope for use
         this.userLocation = new google.maps.LatLng(
           position.coords.latitude,
@@ -137,8 +134,6 @@ export class RoadTripAppComponent implements OnInit {
     // Init direction renderer after map is created
     this.directionsDisplay.setMap(this.map._googleMap);
 
-    console.log(parkData);
-
     // Load GeoJson after everything else is initialized
     this.loadGeojson();
   }
@@ -147,7 +142,7 @@ export class RoadTripAppComponent implements OnInit {
     // For each park in the park list, load the GeoJson data layers based off the park code
     parkData.forEach(park => {
       //Create data layer
-      const data_layer = new google.maps.Data({map: this.map._googleMap});
+      const data_layer = new google.maps.Data({ map: this.map._googleMap });
 
       const geojson =
         '../../../assets/documents/road-trip-app/National Parks Geojson/' +
