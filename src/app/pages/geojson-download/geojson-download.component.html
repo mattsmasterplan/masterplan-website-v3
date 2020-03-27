@@ -1,1 +1,24 @@
-<p>geojson-download works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <mat-list>
+        <a mat-list-item *ngFor="let park of parkData">
+          <!-- assigning the style in a div here because I am fighting
+        against the post proccessing mat list item classes -->
+          <div class="text-white" style="width: 100%; text-align: left;">
+            {{ park.name }}
+            <a href="javascript:void(0);"
+              ><small class="pl-2">Preview</small></a
+            >
+            <a
+              href="javascript:void(0);"
+              (click)="supplyDownload(park.parkCode)"
+              ><small class="pl-2">Download</small></a
+            >
+          </div>
+        </a>
+      </mat-list>
+    </div>
+    <div class="col-md-6"></div>
+  </div>
+</div>

@@ -1,13 +1,8 @@
-import {
-  Component,
-  OnInit,
-  ViewChild,
-  ChangeDetectorRef
-} from '@angular/core';
-import { MapInfoWindow, MapMarker, GoogleMap } from '@angular/google-maps';
+import {Component, OnInit, ViewChild, ChangeDetectorRef} from '@angular/core';
+import {MapInfoWindow, MapMarker, GoogleMap} from '@angular/google-maps';
 
 // Import NPS Park Data from json file as an object
-import { data as parkData } from '../../../assets/documents/road-trip-app/NPS-park-data.json';
+import {data as parkData} from '../../../assets/documents/road-trip-app/NPS-park-data.json';
 
 @Component({
   selector: 'app-road-trip-app',
@@ -15,8 +10,8 @@ import { data as parkData } from '../../../assets/documents/road-trip-app/NPS-pa
   styleUrls: ['./road-trip-app.component.css']
 })
 export class RoadTripAppComponent implements OnInit {
-  @ViewChild(GoogleMap, { static: false }) map: GoogleMap;
-  @ViewChild(MapInfoWindow, { static: false }) info: MapInfoWindow;
+  @ViewChild(GoogleMap, {static: false}) map: GoogleMap;
+  @ViewChild(MapInfoWindow, {static: false}) info: MapInfoWindow;
 
   // TODO this is a workaround for making the imported parkData object available inside the component
   //@Input() parkData: any;
@@ -52,41 +47,39 @@ export class RoadTripAppComponent implements OnInit {
       {
         featureType: 'administrative',
         elementType: 'labels',
-        stylers: [{ visibility: 'off' }]
+        stylers: [{visibility: 'off'}]
       },
       {
         featureType: 'administrative.land_parcel',
-        stylers: [{ visibility: 'off' }]
+        stylers: [{visibility: 'off'}]
       },
       {
         featureType: 'administrative.neighborhood',
-        stylers: [{ visibility: 'off' }]
+        stylers: [{visibility: 'off'}]
       },
       {
         featureType: 'administrative.province',
         elementType: 'labels',
-        stylers: [{ visibility: 'on' }]
+        stylers: [{visibility: 'on'}]
       },
       {
         featureType: 'poi',
         elementType: 'labels',
-        stylers: [{ visibility: 'off' }]
+        stylers: [{visibility: 'off'}]
       },
       {
         featureType: 'road',
-        stylers: [{ visibility: 'off' }]
+        stylers: [{visibility: 'off'}]
       },
       {
         featureType: 'water',
         elementType: 'labels.text',
-        stylers: [{ visibility: 'off' }]
+        stylers: [{visibility: 'off'}]
       }
     ]
   };
 
-  constructor(
-    private changeDetector: ChangeDetectorRef
-  ) {
+  constructor(private changeDetector: ChangeDetectorRef) {
     // hide main title display
     this.showMainDisplay = false;
   }
@@ -124,14 +117,22 @@ export class RoadTripAppComponent implements OnInit {
         // Store user location again as a string for the location display
         // If the first char is a negative sign, grab an extra digit so both values display to the same decimal
         if (position.coords.latitude.toString().charAt(0) == '-') {
-          this.locationDispLat = position.coords.latitude.toString().substr(0, 7);
+          this.locationDispLat = position.coords.latitude
+            .toString()
+            .substr(0, 7);
         } else {
-          this.locationDispLat = position.coords.latitude.toString().substr(0, 6);
+          this.locationDispLat = position.coords.latitude
+            .toString()
+            .substr(0, 6);
         }
         if (position.coords.longitude.toString().charAt(0) == '-') {
-          this.locationDispLng = position.coords.longitude.toString().substr(0, 7);
+          this.locationDispLng = position.coords.longitude
+            .toString()
+            .substr(0, 7);
         } else {
-          this.locationDispLng = position.coords.longitude.toString().substr(0, 6);
+          this.locationDispLng = position.coords.longitude
+            .toString()
+            .substr(0, 6);
         }
       });
     } else {
@@ -152,13 +153,13 @@ export class RoadTripAppComponent implements OnInit {
     // For each park in the park list, load the GeoJson data layers based off the park code
     parkData.forEach(park => {
       //Create data layer
-      const data_layer = new google.maps.Data({ map: this.map._googleMap });
+      const data_layer = new google.maps.Data({map: this.map._googleMap});
 
       const geojson =
         '../../../assets/documents/road-trip-app/National Parks Geojson/' +
         park.parkCode +
         '.geojson';
-
+      // When user clicks on the geojson loaded on top of the map
       data_layer.addListener('click', event => {
         this.loadDirectionsTo(park.name, park.description);
       });

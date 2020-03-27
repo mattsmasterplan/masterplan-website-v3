@@ -23,7 +23,10 @@
   <div class="row">
     <div class="col-md-12">
       <mat-card>
-        <mat-card-header class="text-center div-heading" style="justify-content: center;">
+        <mat-card-header
+          class="text-center div-heading"
+          style="justify-content: center;"
+        >
           <mat-card-title class="text-center">
             <h2 class="div-heading">Visit National Parks</h2>
           </mat-card-title>
@@ -36,12 +39,18 @@
           <div class="row text-center">
             <div class="col-md-6">
               <a [routerLink]="['cuyahoga-valley']">
-                <img width="125px" src="../../../assets/images/home/cuyahoga-valley-pin.png" />
+                <img
+                  width="125px"
+                  src="../../../assets/images/home/cuyahoga-valley-pin.png"
+                />
               </a>
             </div>
             <div class="col-md-6">
               <a [routerLink]="['great-basin']">
-                <img height="125px" src="../../../assets/images/home/great-basin-pin.png" />
+                <img
+                  height="125px"
+                  src="../../../assets/images/home/great-basin-pin.png"
+                />
               </a>
             </div>
           </div>
@@ -61,14 +70,18 @@
         </mat-card-header>
         <mat-card-content>
           <a [routerLink]="['road-trip-app']" class="text-center lead">
-            <img src="../../../assets/images/home/national_park_app_screenshot.jpg" class="card-img pt-2" alt="..." />
-            <p style="margin-bottom: 0px" class="pt-2">Open app</p>
+            <img
+              src="../../../assets/images/home/national_park_app_screenshot.jpg"
+              class="card-img pt-2"
+              alt="..."
+            />
+            <p style="margin-bottom: 0px;" class="pt-2">Open app</p>
           </a>
           <p class="text-white lead">
             Allow current location for intended functionality.
           </p>
           <a [routerLink]="['geojson-download']" class="text-center lead">
-            <p style="margin-bottom: 0px">National Park geojson data</p>
+            <p style="margin-bottom: 0px;">National Park geojson</p>
           </a>
         </mat-card-content>
         <mat-card-actions>
@@ -95,7 +108,10 @@
         <mat-card-header style="justify-content: center;">
           <mat-card-title>
             <h2 class="text-center div-heading">
-              <img src="../../../assets/images/home/20050@2x.png" class="card-img" />
+              <img
+                src="../../../assets/images/home/20050@2x.png"
+                class="card-img"
+              />
             </h2>
           </mat-card-title>
         </mat-card-header>
@@ -222,7 +238,11 @@
           </mat-card-title>
         </mat-card-header>
         <mat-card-content>
-          <img src="../../../assets/images/home/OBDII_MONITOR_LOGO.png" class="card-img" alt="..." />
+          <img
+            src="../../../assets/images/home/OBDII_MONITOR_LOGO.png"
+            class="card-img"
+            alt="..."
+          />
           <p class="text-white lead pt-3">
             Android app for communicating diagnostic data with vehicles using
             Bluetooth.

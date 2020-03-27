@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { GeojsonDownloadComponent } from './geojson-download.component';
+import {GeojsonDownloadComponent} from './geojson-download.component';
 
 describe('GeojsonDownloadComponent', () => {
   let component: GeojsonDownloadComponent;
@@ -8,9 +8,8 @@ describe('GeojsonDownloadComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GeojsonDownloadComponent ]
-    })
-    .compileComponents();
+      declarations: [GeojsonDownloadComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

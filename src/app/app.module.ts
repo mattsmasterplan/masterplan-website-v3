@@ -33,7 +33,7 @@ import {ImageDisplayDialogComponent} from './dialogs/image-display-dialog/image-
 import {AboutSiteComponent} from './pages/about-site/about-site.component';
 import {AboutMeComponent} from './pages/about-me/about-me.component';
 import {ContactComponent} from './pages/contact/contact.component';
-import { GeojsonDownloadComponent } from './pages/geojson-download/geojson-download.component';
+import {GeojsonDownloadComponent} from './pages/geojson-download/geojson-download.component';
 
 @NgModule({
   declarations: [
