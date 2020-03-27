@@ -24,12 +24,17 @@ code {
   color: #78ffff;
 }
 
+/* TODO these classes can be programatically generated */
 .code-indent-ln1 {
   margin-left: 20px;
 }
 
 .code-indent-ln2 {
   margin-left: 40px;
+}
+
+.code-indent-ln3 {
+  margin-left: 60px;
 }
 
 .code-comment {

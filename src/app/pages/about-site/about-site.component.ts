@@ -5,6 +5,7 @@ export interface Dependency {
   name: string;
   link: string;
   version: string;
+  check?: string;
 }
 
 @Component({
@@ -25,7 +26,8 @@ export class AboutSiteComponent implements OnInit {
       {
         name: 'Angular',
         version: '9.1.0',
-        link: 'https://www.npmjs.com/package/@angular/core'
+        link: 'https://www.npmjs.com/package/@angular/core',
+        check: 'ng version'
       },
       {
         name: 'Node',
@@ -45,7 +47,8 @@ export class AboutSiteComponent implements OnInit {
       {
         name: 'TypeScript',
         version: '3.8.3',
-        link: 'https://www.npmjs.com/package/typescript'
+        link: 'https://www.npmjs.com/package/typescript',
+        check: 'tsc -v'
       },
       {
         name: 'Bootstrap',
@@ -55,7 +58,8 @@ export class AboutSiteComponent implements OnInit {
       {
         name: 'Prettier',
         version: '2.0.1',
-        link: 'https://www.prettier.io/'
+        link: 'https://www.prettier.io/',
+        check: ''
       }
     ];
   }

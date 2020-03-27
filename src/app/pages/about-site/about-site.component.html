@@ -13,8 +13,9 @@
         <mat-card-content>
           <mat-list compact>
             <mat-list-item *ngFor="let dep of dependencies">
-              <h3 matLine class="text-white">{{ dep.name }}</h3>
-              <a [href]="dep.link" matLine>{{ dep.version }}</a>
+              <h3 matLine class="lead text-white">{{ dep.name }}</h3>
+              <a matLine [href]="dep.link">{{ dep.version }}</a>
+              <span matLine class="text-white" *ngIf="dep.check">CLI version check: <i>{{ dep.check }}</i></span>
             </mat-list-item>
           </mat-list>
         </mat-card-content>
@@ -37,9 +38,12 @@
     <span class="code-tag">&lt;mat-list compact&gt;</span>
     <span class="code-tag code-indent-ln1">&lt;mat-list-item</span> <span class="code-tag-light">&#42;ngFor=</span><span class="code-highlight">"</span><span class="code-tag">let</span> <span class="code-tag-light">dep</span> <span class="code-tag">of</span> <span class="code-tag-light">dependencies</span><span class="code-highlight">"</span><span class="code-tag">></span>
     <span class="code-comment code-indent-ln2">&lt;!-- For lists that require multiple lines per item,
-              annotate each line with a matLine attribute. --&gt;</span>
+    <span class="code-indent-ln3"></span>annotate each line with a matLine attribute. --&gt;</span>
     <span class="code-tag code-indent-ln2">&lt;h3</span> <span class="code-tag-light">matLine</span><span class="code-tag">></span>{{'{'}}{{'{'}} <span class="code-tag-light">dep.name</span> {{'}'}}{{'}'}}<span class="code-tag">&lt;/h3></span>
     <span class="code-tag code-indent-ln2">&lt;a</span> <span class="code-tag-light">matLine</span> <span class="code-tag-light">&#91;href&#93;=</span><span class="code-highlight">"</span><span class="code-tag-light">dep.link</span><span class="code-highlight">"</span><span class="code-tag">></span> {{'{'}}{{'{'}} <span class="code-tag-light">dep.version</span> {{'}'}}{{'}'}}<span class="code-tag">&lt;/a></span>
+    <span class="code-tag code-indent-ln2">&lt;span</span> <span class="code-tag-light">matLine class=</span><span class="code-highlight">"text-white"</span>
+    <span class="code-tag-light code-indent-ln3">&#42;ngIf="dep.check"</span><span class="code-tag">></span>
+    <span class="code-indent-ln3"></span>CLI version check: {{'{'}}{{'{'}} <span class="code-tag-light">dep.check</span> {{'}'}}{{'}'}}<span class="code-tag">&lt;/span></span>
     <span class="code-tag code-indent-ln1">&lt;/mat-list-item></span>
     <span class="code-tag">&lt;/mat-list></span>
   </code>
@@ -51,7 +55,8 @@
     <span class="code-indent-ln1">{{'{'}}</span>
     <span class="code-tag-light code-indent-ln2">name:</span> <span class="code-highlight">'Angular'</span>,
     <span class="code-tag-light code-indent-ln2">version:</span> <span class="code-highlight">'9.0.5'</span>,
-    <span class="code-tag-light code-indent-ln2">link:</span> <span class="code-highlight">'https://www.npmjs.com/package/@angular/core'</span>
+    <span class="code-tag-light code-indent-ln2">link:</span> <span class="code-highlight">'https://www.npmjs.com/package/@angular/core',</span>
+    <span class="code-tag-light code-indent-ln2">check:</span> <span class="code-highlight">'ng version'</span>
     <span class="code-indent-ln1">{{'}'}},</span>
     ...
     ];
