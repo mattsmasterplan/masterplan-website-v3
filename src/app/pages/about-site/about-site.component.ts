@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {Title} from '@angular/platform-browser';
+import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 export interface Dependency {
   name: string;
@@ -24,7 +24,7 @@ export class AboutSiteComponent implements OnInit {
     this.dependencies = [
       {
         name: 'Angular',
-        version: '9.0.5',
+        version: '9.1.0',
         link: 'https://www.npmjs.com/package/@angular/core'
       },
       {
@@ -44,7 +44,7 @@ export class AboutSiteComponent implements OnInit {
       },
       {
         name: 'TypeScript',
-        version: '3.7.5',
+        version: '3.8.3',
         link: 'https://www.npmjs.com/package/typescript'
       },
       {
