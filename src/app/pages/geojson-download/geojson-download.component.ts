@@ -25,7 +25,7 @@ export class GeojsonDownloadComponent implements OnInit {
   parkData = parkData;
 
   // TODO: height is being forced and is not dyanmic to the actual viewport minus toolbars
-  height = '50vh';
+ // height = '50vh';
   zoom = 4;
   center = {
     lat: 39,

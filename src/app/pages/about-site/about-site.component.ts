@@ -54,7 +54,7 @@ export class AboutSiteComponent implements OnInit {
         name: 'Bootstrap',
         version: '4.4.1',
         link: 'https://www.getbootstrap.com',
-        check: 'npm ls ==depth=0'
+        check: 'npm ls --depth=0'
       },
       {
         name: 'Prettier',

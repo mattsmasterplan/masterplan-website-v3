@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12 text-center text-white py-5">
-      <h1 class="display-4">National Park Geojson data</h1>
+    <div class="col-md-12 text-center text-white pt-3 pb-5">
+      <h1 class="display-4">National Park Geojson Data</h1>
     </div>
   </div>
-  <div class="row">
+  <div class="row align-items-center">
     <div class="col-md-6">
       <mat-list>
         <a mat-list-item *ngFor="let park of parkData">
@@ -29,7 +29,7 @@
     <div class="col-md-6">
       <div>
         <google-map
-          [height]="height"
+
           width="auto"
           [zoom]="zoom"
           [center]="center"
