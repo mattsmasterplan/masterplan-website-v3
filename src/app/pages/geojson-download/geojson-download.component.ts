@@ -1,8 +1,8 @@
-import { GeojsonDownloadService } from './../../services/geojson-download.service';
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MapInfoWindow, MapMarker, GoogleMap } from '@angular/google-maps';
+import {GeojsonDownloadService} from './../../services/geojson-download.service';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {MapInfoWindow, MapMarker, GoogleMap} from '@angular/google-maps';
 // Import NPS Park Data from json file as an object
-import { data as parkData } from '../../../assets/documents/road-trip-app/NPS-park-data.json';
+import {data as parkData} from '../../../assets/documents/road-trip-app/NPS-park-data.json';
 
 @Component({
   selector: 'app-geojson-download',
@@ -10,7 +10,15 @@ import { data as parkData } from '../../../assets/documents/road-trip-app/NPS-pa
   styleUrls: ['./geojson-download.component.css']
 })
 export class GeojsonDownloadComponent implements OnInit {
-  @ViewChild(GoogleMap, { static: false }) map: GoogleMap;
+
+  constructor(private GeojsonDownloadService: GeojsonDownloadService) {}
+
+  ngOnInit(): void {}
+
+  @ViewChild(GoogleMap, {static: false}) map: GoogleMap;
+
+
+  selectedParkName: String;
 
   // TODO this is a workaround for making the imported parkData object available inside the component
   // The mat-list generates from this array
@@ -33,43 +41,39 @@ export class GeojsonDownloadComponent implements OnInit {
       {
         featureType: 'administrative',
         elementType: 'labels',
-        stylers: [{ visibility: 'off' }]
+        stylers: [{visibility: 'off'}]
       },
       {
         featureType: 'administrative.land_parcel',
-        stylers: [{ visibility: 'off' }]
+        stylers: [{visibility: 'off'}]
       },
       {
         featureType: 'administrative.neighborhood',
-        stylers: [{ visibility: 'off' }]
+        stylers: [{visibility: 'off'}]
       },
       {
         featureType: 'administrative.province',
         elementType: 'labels',
-        stylers: [{ visibility: 'on' }]
+        stylers: [{visibility: 'on'}]
       },
       {
         featureType: 'poi',
         elementType: 'labels',
-        stylers: [{ visibility: 'off' }]
+        stylers: [{visibility: 'off'}]
       },
       {
         featureType: 'road',
-        stylers: [{ visibility: 'off' }]
+        stylers: [{visibility: 'off'}]
       },
       {
         featureType: 'water',
         elementType: 'labels.text',
-        stylers: [{ visibility: 'off' }]
+        stylers: [{visibility: 'off'}]
       }
     ]
   };
 
-  constructor(private GeojsonDownloadService: GeojsonDownloadService) { }
-
-  ngOnInit(): void { }
-
-  previewGeojson(parkCode) {
+  previewGeojson(park) {
     // Remove any features already loaded to the map
     this.map.data.forEach(feature => {
       this.map.data.remove(feature);
@@ -78,7 +82,7 @@ export class GeojsonDownloadComponent implements OnInit {
     // set URL for requested geojson file
     let geojson =
       '../../../assets/documents/road-trip-app/National Parks Geojson/' +
-      parkCode +
+      park.parkCode +
       '.geojson';
 
     let bounds = new google.maps.LatLngBounds();
@@ -92,6 +96,8 @@ export class GeojsonDownloadComponent implements OnInit {
           bounds.extend(latlng);
         });
       });
+      // Set preview title
+      this.selectedParkName = park.fullName;
       // Set the map bounds inside the callback function to ensure the geojson is loaded already
       this.map.fitBounds(bounds);
     });
@@ -100,7 +106,7 @@ export class GeojsonDownloadComponent implements OnInit {
   supplyDownload(parkCode) {
     // Use GeojsonDownloadService to get requested file
     this.GeojsonDownloadService.downloadFile(parkCode).subscribe(response => {
-      let blob: any = new Blob([response], { type: 'text/json; charset=utf-8' });
+      let blob: any = new Blob([response], {type: 'text/json; charset=utf-8'});
       const url = window.URL.createObjectURL(blob);
       // TODO Probably not the ideal way to serve up a file but it's working for now
       let a = document.createElement('a');
