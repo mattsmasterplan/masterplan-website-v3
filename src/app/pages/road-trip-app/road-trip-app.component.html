@@ -35,16 +35,32 @@
 <!-- Bootstrap classes prevent list from showing on small screens.
      Park list is outside of container class so it can be positioned without compromising bootstrap structure -->
 <mat-nav-list class="park-list d-none d-sm-none d-md-block" id="npsListDiv">
-  <a mat-list-item *ngFor="let park of parkData" (click)="loadDirectionsTo(park.name, park.description)">
+  <a
+    mat-list-item
+    *ngFor="let park of parkData"
+    (click)="loadDirectionsTo(park.name, park.description)"
+  >
     <!-- assigning the style in a div here because I am fighting
       against the post proccessing mat list item classes -->
     <div style="width: 100%; text-align: left;">{{ park.name }}</div>
   </a>
 </mat-nav-list>
 
-<google-map [height]="height" width="auto" [zoom]="zoom" [center]="center" [options]="options">
-  <map-marker #markerElem *ngFor="let marker of markers" [position]="marker.position" [label]="marker.label"
-    [title]="marker.title" [options]="marker.options">
+<google-map
+  [height]="height"
+  width="auto"
+  [zoom]="zoom"
+  [center]="center"
+  [options]="options"
+>
+  <map-marker
+    #markerElem
+    *ngFor="let marker of markers"
+    [position]="marker.position"
+    [label]="marker.label"
+    [title]="marker.title"
+    [options]="marker.options"
+  >
   </map-marker>
 
   <!-- <map-info-window>{{ infoContent }}</map-info-window> -->

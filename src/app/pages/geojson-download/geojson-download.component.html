@@ -7,29 +7,31 @@
         against the post proccessing mat list item classes -->
           <div class="text-white" style="width: 100%; text-align: left;">
             {{ park.name }}
-            <a href="javascript:void(0);" (click)="previewGeojson(park.parkCode)"><small class="
-              pl-2">Preview</small></a>
-            <a href="javascript:void(0);" (click)="supplyDownload(park.parkCode)"><small
-                class="pl-2">Download</small></a>
+            <a
+              href="javascript:void(0);"
+              (click)="previewGeojson(park.parkCode)"
+              ><small class="pl-2">Preview</small></a
+            >
+            <a
+              href="javascript:void(0);"
+              (click)="supplyDownload(park.parkCode)"
+              ><small class="pl-2">Download</small></a
+            >
           </div>
         </a>
       </mat-list>
     </div>
     <div class="col-md-6">
-
-
-
-
       <div>
-        <google-map [height]="height" width="auto" [zoom]="zoom" [center]="center" [options]="options">
-
+        <google-map
+          [height]="height"
+          width="auto"
+          [zoom]="zoom"
+          [center]="center"
+          [options]="options"
+        >
         </google-map>
       </div>
-
-
-
-
-
     </div>
   </div>
 </div>

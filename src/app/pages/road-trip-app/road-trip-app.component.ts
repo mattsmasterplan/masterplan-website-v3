@@ -1,8 +1,8 @@
-import { Component, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
-import { MapInfoWindow, MapMarker, GoogleMap } from '@angular/google-maps';
+import {Component, OnInit, ViewChild, ChangeDetectorRef} from '@angular/core';
+import {MapInfoWindow, MapMarker, GoogleMap} from '@angular/google-maps';
 
 // Import NPS Park Data from json file as an object
-import { data as parkData } from '../../../assets/documents/road-trip-app/NPS-park-data.json';
+import {data as parkData} from '../../../assets/documents/road-trip-app/NPS-park-data.json';
 
 @Component({
   selector: 'app-road-trip-app',
@@ -10,8 +10,8 @@ import { data as parkData } from '../../../assets/documents/road-trip-app/NPS-pa
   styleUrls: ['./road-trip-app.component.css']
 })
 export class RoadTripAppComponent implements OnInit {
-  @ViewChild(GoogleMap, { static: false }) map: GoogleMap;
-  @ViewChild(MapInfoWindow, { static: false }) info: MapInfoWindow;
+  @ViewChild(GoogleMap, {static: false}) map: GoogleMap;
+  @ViewChild(MapInfoWindow, {static: false}) info: MapInfoWindow;
 
   // TODO this is a workaround for making the imported parkData object available inside the component
   //@Input() parkData: any;
@@ -47,34 +47,34 @@ export class RoadTripAppComponent implements OnInit {
       {
         featureType: 'administrative',
         elementType: 'labels',
-        stylers: [{ visibility: 'off' }]
+        stylers: [{visibility: 'off'}]
       },
       {
         featureType: 'administrative.land_parcel',
-        stylers: [{ visibility: 'off' }]
+        stylers: [{visibility: 'off'}]
       },
       {
         featureType: 'administrative.neighborhood',
-        stylers: [{ visibility: 'off' }]
+        stylers: [{visibility: 'off'}]
       },
       {
         featureType: 'administrative.province',
         elementType: 'labels',
-        stylers: [{ visibility: 'on' }]
+        stylers: [{visibility: 'on'}]
       },
       {
         featureType: 'poi',
         elementType: 'labels',
-        stylers: [{ visibility: 'off' }]
+        stylers: [{visibility: 'off'}]
       },
       {
         featureType: 'road',
-        stylers: [{ visibility: 'off' }]
+        stylers: [{visibility: 'off'}]
       },
       {
         featureType: 'water',
         elementType: 'labels.text',
-        stylers: [{ visibility: 'off' }]
+        stylers: [{visibility: 'off'}]
       }
     ]
   };
@@ -153,7 +153,7 @@ export class RoadTripAppComponent implements OnInit {
     // For each park in the park list, load the GeoJson data layers based off the park code
     parkData.forEach(park => {
       //Create data layer
-      let data_layer = new google.maps.Data({ map: this.map._googleMap });
+      let data_layer = new google.maps.Data({map: this.map._googleMap});
 
       let geojson =
         '../../../assets/documents/road-trip-app/National Parks Geojson/' +

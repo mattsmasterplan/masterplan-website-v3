@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import {Component, OnInit} from '@angular/core';
+import {Title} from '@angular/platform-browser';
 
 export interface Dependency {
   name: string;

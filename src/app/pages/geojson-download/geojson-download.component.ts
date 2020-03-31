@@ -13,7 +13,7 @@ export class GeojsonDownloadComponent implements OnInit {
   @ViewChild(GoogleMap, { static: false }) map: GoogleMap;
 
   // TODO this is a workaround for making the imported parkData object available inside the component
-  //@Input() parkData: any;
+  // The mat-list generates from this array
   parkData = parkData;
 
   // TODO: height is being forced and is not dyanmic to the actual viewport minus toolbars
@@ -70,56 +70,39 @@ export class GeojsonDownloadComponent implements OnInit {
   ngOnInit(): void { }
 
   previewGeojson(parkCode) {
-    // Create data layer
-    let data_layer = new google.maps.Data({ map: this.map._googleMap });
+    // Remove any features already loaded to the map
+    this.map.data.forEach(feature => {
+      this.map.data.remove(feature);
+    });
+
     // set URL for requested geojson file
     let geojson =
       '../../../assets/documents/road-trip-app/National Parks Geojson/' +
       parkCode +
       '.geojson';
-    // Load geojson layer to map
-    data_layer.loadGeoJson(geojson);
-    //this.map._googleMap.data.addGeoJson(JSON.parse(geojson));
-    console.log(this.map._googleMap.data);
 
     let bounds = new google.maps.LatLngBounds();
 
-    // bounds.extend(geojson)
-
-    this.map._googleMap.data.forEach(function (feature) {
-      // this.processPoints(feature.getGeometry(), bounds.extend, bounds);
-      console.log(feature);
-    })
-    // this.map.fitBounds(bounds);
-  }
-
-  /**
-      * Process each point in a Geometry, regardless of how deep the points may lie.
-      * @param {google.maps.Data.Geometry} geometry The structure to process
-      * @param {function(google.maps.LatLng)} callback A function to call on each
-      *     LatLng point encountered (e.g. Array.push)
-      * @param {Object} thisArg The value of 'this' as provided to 'callback' (e.g.
-      *     myArray)
-      */
-  processPoints(geometry, callback, thisArg) {
-    if (geometry instanceof google.maps.LatLng) {
-      callback.call(thisArg, geometry);
-    } else if (geometry instanceof google.maps.Data.Point) {
-      callback.call(thisArg, geometry.get());
-    } else {
-      geometry.getArray().forEach(function (g) {
-        this.processPoints(g, callback, thisArg);
+    // Load geojson to map. Callback function sets the view to the bounds of the geojson
+    this.map.data.loadGeoJson(geojson, null, features => {
+      // Should only be one feature since I am loading individual files
+      features.forEach(feature => {
+        // Take each latlng in the feature and extend the bounds to contain it
+        feature.getGeometry().forEachLatLng(latlng => {
+          bounds.extend(latlng);
+        });
       });
-    }
+      // Set the map bounds inside the callback function to ensure the geojson is loaded already
+      this.map.fitBounds(bounds);
+    });
   }
-
 
   supplyDownload(parkCode) {
     // Use GeojsonDownloadService to get requested file
     this.GeojsonDownloadService.downloadFile(parkCode).subscribe(response => {
       let blob: any = new Blob([response], { type: 'text/json; charset=utf-8' });
       const url = window.URL.createObjectURL(blob);
-      // TODO Probably not the ideal way to serve up a download but it's working for now
+      // TODO Probably not the ideal way to serve up a file but it's working for now
       let a = document.createElement('a');
       document.body.appendChild(a);
       a.setAttribute('style', 'display: none');

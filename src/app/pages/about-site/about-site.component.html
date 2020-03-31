@@ -15,7 +15,9 @@
             <mat-list-item *ngFor="let dep of dependencies">
               <h3 matLine class="lead text-white">{{ dep.name }}</h3>
               <a matLine [href]="dep.link">{{ dep.version }}</a>
-              <span matLine class="text-white" *ngIf="dep.check">CLI version check: <i>{{ dep.check }}</i></span>
+              <span matLine class="text-white" *ngIf="dep.check"
+                >CLI version check: <i>{{ dep.check }}</i></span
+              >
             </mat-list-item>
           </mat-list>
         </mat-card-content>
