@@ -35,7 +35,7 @@ import {AboutSiteComponent} from './pages/about-site/about-site.component';
 import {AboutMeComponent} from './pages/about-me/about-me.component';
 import {ContactComponent} from './pages/contact/contact.component';
 import {GeojsonDownloadComponent} from './pages/geojson-download/geojson-download.component';
-import { IsleRoyaleComponent } from './pages/national-parks/isle-royale/isle-royale.component';
+import {IsleRoyaleComponent} from './pages/national-parks/isle-royale/isle-royale.component';
 
 @NgModule({
   declarations: [

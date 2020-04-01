@@ -12,9 +12,7 @@
         against the post proccessing mat list item classes -->
           <div class="text-white" style="width: 100%; text-align: left;">
             {{ park.name }}
-            <a
-              href="javascript:void(0);"
-              (click)="previewGeojson(park)"
+            <a href="javascript:void(0);" (click)="previewGeojson(park)"
               ><small class="pl-2">Preview</small></a
             >
             <a
@@ -29,7 +27,6 @@
     <div class="col-md-6">
       <div>
         <google-map
-
           width="auto"
           [zoom]="zoom"
           [center]="center"
@@ -38,7 +35,7 @@
         </google-map>
       </div>
       <div class="text-center text-white pt-5">
-        <h2>{{this.selectedParkName}}</h2>
+        <h2>{{ this.selectedParkName }}</h2>
       </div>
     </div>
   </div>

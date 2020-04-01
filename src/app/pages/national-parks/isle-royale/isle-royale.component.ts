@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatGridListModule} from '@angular/material/grid-list';
-
-
 
 @Component({
   selector: 'app-isle-royale',
@@ -9,12 +7,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
   styleUrls: ['./isle-royale.component.css']
 })
 export class IsleRoyaleComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-
-
+  ngOnInit(): void {}
 }

@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { IsleRoyaleComponent } from './isle-royale.component';
+import {IsleRoyaleComponent} from './isle-royale.component';
 
 describe('IsleRoyaleComponent', () => {
   let component: IsleRoyaleComponent;
@@ -8,9 +8,8 @@ describe('IsleRoyaleComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ IsleRoyaleComponent ]
-    })
-    .compileComponents();
+      declarations: [IsleRoyaleComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

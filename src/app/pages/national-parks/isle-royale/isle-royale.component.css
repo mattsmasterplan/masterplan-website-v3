@@ -3,5 +3,11 @@ mat-grid-tile {
 }
 
 mat-card {
-  background-color: rgba(122, 122, 122, 0.0);
+  background-color: rgba(122, 122, 122, 0);
+}
+
+.tile-img {
+  object-fit: cover;
+  height: inherit;
+  width: inherit;
 }

@@ -10,13 +10,11 @@ import {data as parkData} from '../../../assets/documents/road-trip-app/NPS-park
   styleUrls: ['./geojson-download.component.css']
 })
 export class GeojsonDownloadComponent implements OnInit {
-
   constructor(private GeojsonDownloadService: GeojsonDownloadService) {}
 
   ngOnInit(): void {}
 
   @ViewChild(GoogleMap, {static: false}) map: GoogleMap;
-
 
   selectedParkName: String;
 
@@ -25,7 +23,7 @@ export class GeojsonDownloadComponent implements OnInit {
   parkData = parkData;
 
   // TODO: height is being forced and is not dyanmic to the actual viewport minus toolbars
- // height = '50vh';
+  // height = '50vh';
   zoom = 4;
   center = {
     lat: 39,
