@@ -20,6 +20,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatListModule} from '@angular/material/list';
 import {MatCarouselModule} from '@ngmodule/material-carousel';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 import {GoogleMapsModule} from '@angular/google-maps';
 
@@ -34,6 +35,7 @@ import {AboutSiteComponent} from './pages/about-site/about-site.component';
 import {AboutMeComponent} from './pages/about-me/about-me.component';
 import {ContactComponent} from './pages/contact/contact.component';
 import {GeojsonDownloadComponent} from './pages/geojson-download/geojson-download.component';
+import { IsleRoyaleComponent } from './pages/national-parks/isle-royale/isle-royale.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,8 @@ import {GeojsonDownloadComponent} from './pages/geojson-download/geojson-downloa
     AboutSiteComponent,
     AboutMeComponent,
     ContactComponent,
-    GeojsonDownloadComponent
+    GeojsonDownloadComponent,
+    IsleRoyaleComponent
   ],
   imports: [
     BrowserModule,
@@ -68,6 +71,7 @@ import {GeojsonDownloadComponent} from './pages/geojson-download/geojson-downloa
     MatInputModule,
     MatSnackBarModule,
     MatListModule,
+    MatGridListModule,
     MatCarouselModule.forRoot(),
     GoogleMapsModule
   ],

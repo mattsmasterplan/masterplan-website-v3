@@ -1,3 +1,4 @@
+import { IsleRoyaleComponent } from './pages/national-parks/isle-royale/isle-royale.component';
 import {AboutSiteComponent} from './pages/about-site/about-site.component';
 import {AboutMeComponent} from './pages/about-me/about-me.component';
 import {ContactComponent} from './pages/contact/contact.component';
@@ -18,6 +19,7 @@ const appRoutes: Routes = [
   {path: 'about', component: HomeComponent},
   {path: 'cuyahoga-valley', component: CuyahogaValleyComponent},
   {path: 'great-basin', component: GreatBasinComponent},
+  {path: 'isle-royale', component: IsleRoyaleComponent},
   {path: 'sources-of-the-river', component: SourcesOfTheRiverComponent},
   {path: 'dancase-build', component: DancaseBuildComponent},
   {path: 'road-trip-app', component: RoadTripAppComponent},
