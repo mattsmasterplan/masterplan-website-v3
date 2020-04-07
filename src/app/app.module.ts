@@ -21,6 +21,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatListModule} from '@angular/material/list';
 import {MatCarouselModule} from '@ngmodule/material-carousel';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatTabsModule} from '@angular/material/tabs';
 
 import {GoogleMapsModule} from '@angular/google-maps';
 
@@ -37,6 +38,7 @@ import {ContactComponent} from './pages/contact/contact.component';
 import {GeojsonDownloadComponent} from './pages/geojson-download/geojson-download.component';
 import {IsleRoyaleComponent} from './pages/national-parks/isle-royale/isle-royale.component';
 import { ShenandoahComponent } from './pages/national-parks/shenandoah/shenandoah.component';
+import { GettingStartedTypescriptComponent } from './pages/getting-started-typescript/getting-started-typescript.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,8 @@ import { ShenandoahComponent } from './pages/national-parks/shenandoah/shenandoa
     ContactComponent,
     GeojsonDownloadComponent,
     IsleRoyaleComponent,
-    ShenandoahComponent
+    ShenandoahComponent,
+    GettingStartedTypescriptComponent
   ],
   imports: [
     BrowserModule,
@@ -74,6 +77,7 @@ import { ShenandoahComponent } from './pages/national-parks/shenandoah/shenandoa
     MatSnackBarModule,
     MatListModule,
     MatGridListModule,
+    MatTabsModule,
     MatCarouselModule.forRoot(),
     GoogleMapsModule
   ],

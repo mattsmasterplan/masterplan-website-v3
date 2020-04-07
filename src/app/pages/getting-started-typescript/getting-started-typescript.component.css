@@ -1,19 +1,15 @@
-mat-card {
+.highlight {
   background-color: rgba(122, 122, 122, 0.2);
+  border-radius: 10px;
 }
 
 pre {
   background-color: #182025;
-  border-radius: 15px;
   font-size: small;
 }
 
 code {
   color: white;
-}
-
-.maintain-height {
-  min-height: 650px;
 }
 
 .code-tag {
@@ -43,4 +39,16 @@ code {
 
 .code-highlight {
   color: #ce9178;
+}
+
+.code-type {
+  color: #4ec9b0;
+}
+
+.code-value {
+  color: #b5cea8;
+}
+
+.code-func {
+  color: #dcdcaa;
 }

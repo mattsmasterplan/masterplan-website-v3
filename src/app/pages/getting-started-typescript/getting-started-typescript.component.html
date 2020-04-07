@@ -1,0 +1,112 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1 class="display-3 text-white text-center">
+        Getting Started with TypeScript
+      </h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h2 class="text-white">Basic Types</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <mat-tab-group color="accent" backgroundColor="primary">
+        <mat-tab label="Boolean">
+          <pre>
+          <code>
+            <span class="code-comment">// Boolean is a datatype where the value can only be true or false</span>
+            <span class="code-tag">let</span> <span class="code-tag-light">isDone: </span><span class="code-type">boolean</span> = <span class="code-tag">false</span>;
+          </code>
+        </pre>
+        </mat-tab>
+        <mat-tab label="Number">
+          <pre>
+          <code>
+            <span class="code-comment">// All numbers are floating point values</span>
+            <span class="code-comment">// TypeScript supports decimal, hexadecimal, binary, and octal literals</span>
+            <span class="code-tag">let</span> <span class="code-tag-light">decimal: </span><span class="code-type">number</span> = <span class="code-tag">6</span>;
+            <span class="code-tag">let</span> <span class="code-tag-light">hex: </span><span class="code-type">number</span> = <span class="code-tag">0xf00d</span>;
+            <span class="code-tag">let</span> <span class="code-tag-light">binary: </span><span class="code-type">number</span> = <span class="code-tag">0b1010</span>;
+            <span class="code-tag">let</span> <span class="code-tag-light">octal: </span><span class="code-type">number</span> = <span class="code-tag">0o744</span>;
+          </code>
+        </pre>
+        </mat-tab>
+        <mat-tab label="String">
+          <pre>
+          <code>
+            <span class="code-comment">// String refers to the textual datatype</span>
+            <span class="code-comment">// Either double quotes or single quotes work to denote a string</span>
+            <span class="code-tag">let</span> <span class="code-tag-light">color: </span><span class="code-type">string</span> = <span class="code-highlight">"red"</span>;
+            <span class="code-tag">let</span> <span class="code-tag-light">word: </span><span class="code-type">string</span> = <span class="code-highlight">'singleQuotes'</span>;
+
+            <span class="code-comment">// Template strings can also be declared by enclosing them with the backtick character</span>
+            <span class="code-comment">// Strings of this type can contain embedded expressions which will evaluate to the value of the expression</span>
+            <span class="code-tag">let</span> <span class="code-tag-light">fullName: </span><span class="code-type">string</span> = <span class="code-highlight">'Bob Bobbington'</span>;
+            <span class="code-tag">let</span> <span class="code-tag-light">age: </span><span class="code-type">number</span> = <span class="code-highlight">37</span>;
+            <span class="code-tag">let</span> <span class="code-tag-light">templateString: </span><span class="code-type">string</span> = <span class="code-highlight">`Hello, my name is &#36;&#123;fullName&#125;.</span>
+                                         <span class="code-highlight">I will be &#36;&#123;age + 1&#125; years old next month.`</span>;
+          </code>
+        </pre>
+        </mat-tab>
+        <mat-tab label="Array">
+          <pre>
+          <code>
+            <span class="code-comment">// There are two ways to declare an array of values</span>
+            <span class="code-comment">// The first way is to use the type of the elements followed by &#91;&#93;</span>
+            <span class="code-tag">let</span> <span class="code-tag-light">list: </span><span class="code-type">number</span>&#91;&#93; = &#91;<span class="code-highlight">1, 2, 3</span>&#93;;
+
+            <span class="code-comment">// The second way is to use a generic array type</span>
+            <span class="code-tag">let</span> <span class="code-tag-light">list: </span><span class="code-type">Array</span> = &#91;<span class="code-highlight">1, 2, 3</span>&#93;;
+          </code>
+        </pre>
+        </mat-tab>
+        <mat-tab label="Tuple">
+          <pre>
+          <code>
+            <span class="code-comment">// Tuple datatypes allow you to create an array with a fixed number of elements</span>
+            <span class="code-comment">// whose types are known, but not necessarily the same</span>
+            <span class="code-tag">let</span> <span class="code-tag-light">x: </span>&#91;<span class="code-type">string, number</span>&#93;;
+            <span class="code-tag-light">x</span> = &#91;<span class="code-highlight">"hello"</span>, <span class="code-value">10</span>&#93;;
+
+            <span class="code-comment">// You can make type specific commands to the known elements</span>
+            <span class="code-tag-light">console.</span><span class="code-func">log</span>(<span class="code-tag-light">x</span>&#91;<span class="code-func">0</span>&#93;.<span class="span code-func">substring</span>(<span class="code-func">1</span>));
+          </code>
+        </pre>
+        </mat-tab>
+        <mat-tab label="Enum">
+          <pre>
+          <code>
+            <span class="code-comment">// The enum datatype is a way to name the elements of a defined set </span>
+            <span class="code-comment">// By default, enums begin numbering their elements starting at 0 </span>
+            <span class="code-tag">enum</span> <span class="code-tag-light">Color </span>&#123;
+              <span class="code-value">Red</span>,
+              <span class="code-value">Green</span>,
+              <span class="code-value">Blue</span>
+            &#125;
+
+            <span class="code-comment">// Default numbering can be changed manually </span>
+            <span class="code-tag">enum</span> <span class="code-tag-light">Color </span>&#123;
+              <span class="code-value">Red</span> = <span class="code-value">1</span>,
+              <span class="code-value">Green</span>,
+              <span class="code-value">Blue</span>
+            &#125;
+
+            <span class="code-comment">// Access an element like this </span>
+            <span class="code-tag">let</span> <span class="code-tag-light">c: </span><span class="code-type">Color</span> = <span class="code-type">Color</span>.<span class="span code-func">Green</span>;
+            <span class="code-comment">// Or like this </span>
+            <span class="code-tag">let</span> <span class="code-tag-light">colorName: </span><span class="code-type">string</span> = <span class="code-type">Color</span>&#91;<span class="code-func">2</span>&#93;;
+          </code>
+        </pre>
+        </mat-tab>
+        <mat-tab label="Any"> Content 3 </mat-tab>
+        <mat-tab label="Void"> Content 3 </mat-tab>
+        <mat-tab label="Null & Undefined"> Content 3 </mat-tab>
+        <mat-tab label="Never"> Content 3 </mat-tab>
+        <mat-tab label="Object"> Content 3 </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>
