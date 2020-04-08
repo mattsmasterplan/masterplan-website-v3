@@ -1,5 +1,5 @@
-import { GettingStartedTypescriptComponent } from './pages/getting-started-typescript/getting-started-typescript.component';
-import { ShenandoahComponent } from './pages/national-parks/shenandoah/shenandoah.component';
+import {GettingStartedTypescriptComponent} from './pages/getting-started-typescript/getting-started-typescript.component';
+import {ShenandoahComponent} from './pages/national-parks/shenandoah/shenandoah.component';
 import {IsleRoyaleComponent} from './pages/national-parks/isle-royale/isle-royale.component';
 import {AboutSiteComponent} from './pages/about-site/about-site.component';
 import {AboutMeComponent} from './pages/about-me/about-me.component';
@@ -30,7 +30,10 @@ const appRoutes: Routes = [
   {path: 'about-me', component: AboutMeComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'geojson-download', component: GeojsonDownloadComponent},
-  {path: 'getting-started-typescript', component: GettingStartedTypescriptComponent}
+  {
+    path: 'getting-started-typescript',
+    component: GettingStartedTypescriptComponent
+  }
   // { path: '**', component: PageNotFoundComponent }
 ];
 

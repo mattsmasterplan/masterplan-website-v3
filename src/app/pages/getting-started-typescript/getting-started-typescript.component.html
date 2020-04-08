@@ -1,12 +1,12 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h1 class="display-3 text-white text-center">
+      <h1 class="display-3 text-white text-center py-3">
         Getting Started with TypeScript
       </h1>
     </div>
   </div>
-  <div class="row">
+  <div class="row py-2">
     <div class="col">
       <h2 class="text-white">Basic Types</h2>
     </div>
@@ -101,11 +101,51 @@
           </code>
         </pre>
         </mat-tab>
-        <mat-tab label="Any"> Content 3 </mat-tab>
-        <mat-tab label="Void"> Content 3 </mat-tab>
-        <mat-tab label="Null & Undefined"> Content 3 </mat-tab>
-        <mat-tab label="Never"> Content 3 </mat-tab>
-        <mat-tab label="Object"> Content 3 </mat-tab>
+        <mat-tab label="Any">
+          <pre>
+            <code>
+              <span class="code-comment">// Declaring a variable as datatype any opts-out of type checking and lets any value compile</span>
+              <span class="code-comment">// This his helpful to describe the type of variables that we do not know </span>
+              <span class="code-tag">let</span> <span class="code-tag-light">notSure: </span><span class="code-type">any</span> = <span class="code-highlight">4</span>;
+            </code>
+          </pre>
+        </mat-tab>
+        <mat-tab label="Void">
+          <pre>
+            <code>
+              <span class="code-comment">// Void is the absence of having any type at all</span>
+              <span class="code-comment">// Such as a function that does not return a value </span>
+              <span class="code-tag">function</span> <span class="code-func">warnUser</span>(): <span class="code-type">void</span> &#123; <span class="code-tag-light">console</span>.<span class="code-func">log</span>(<span class="code-highlight">"useless function"</span>); &#125;
+            </code>
+          </pre>
+        </mat-tab>
+        <mat-tab label="Null & Undefined">
+
+        <pre>
+          <code>
+          <span class="code-comment">// Undefined and Null are each seperate datatypes</span>
+          <span class="code-comment">// They are subtypes of all other types. You can assign them to a number for example</span>
+
+          <span class="code-comment">// Not much else we can assign to these variables!</span>
+          <span class="code-tag">let</span> <span class="code-tag-light">u: </span><span class="code-type">undefined</span> = <span class="code-tag">undefined</span>;
+          <span class="code-tag">let</span> <span class="code-tag-light">n: </span><span class="code-type">null</span> = <span class="code-tag">null</span>;
+        </code>
+      </pre>
+        </mat-tab>
+        <mat-tab label="Never">
+          <pre>
+            <code>
+              <span class="code-comment">// The never type represents values that never occur</span>
+              <span class="code-comment">// For instance, never is the return type for a function expression</span>
+              <span class="code-comment">// or an arrow function expression that always throws an exception or one that never returns;</span>
+
+              <span class="code-comment">// Function returning never must have unreachable end point</span>
+              <span class="code-tag">function</span> <span class="code-func">error</span>(<span class="code-tag-light">message</span>: <span class="code-type">string</span>): <span class="code-type">never</span> &#123;
+              <span class="code-indent-ln1 code-highlight">throw</span> <span class="code-tag">new</span> <span class="code-type">Error</span>(<span class="code-tag-light">message</span>);
+              &#125;
+            </code>
+          </pre>
+        </mat-tab>
       </mat-tab-group>
     </div>
   </div>

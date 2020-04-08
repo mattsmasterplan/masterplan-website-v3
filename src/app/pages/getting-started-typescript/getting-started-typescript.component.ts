@@ -28,3 +28,14 @@ enum Color {
 
 let c: Color = Color.Green;
 let colorName: string = Color[2];
+
+function warnUser(): void {
+  console.log('This is my warning message');
+}
+
+let u: undefined = undefined;
+let n: null = null;
+
+function error(message: string): never {
+  throw new Error(message);
+}
