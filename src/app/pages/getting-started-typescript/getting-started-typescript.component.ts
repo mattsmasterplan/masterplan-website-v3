@@ -39,3 +39,6 @@ let n: null = null;
 function error(message: string): never {
   throw new Error(message);
 }
+
+let input = [1, 2];
+let [first, second] = input;

@@ -105,7 +105,7 @@
           <pre>
             <code>
               <span class="code-comment">// Declaring a variable as datatype any opts-out of type checking and lets any value compile</span>
-              <span class="code-comment">// This his helpful to describe the type of variables that we do not know </span>
+              <span class="code-comment">// This is helpful to describe the type of variables that we do not know </span>
               <span class="code-tag">let</span> <span class="code-tag-light">notSure: </span><span class="code-type">any</span> = <span class="code-highlight">4</span>;
             </code>
           </pre>
@@ -120,8 +120,7 @@
           </pre>
         </mat-tab>
         <mat-tab label="Null & Undefined">
-
-        <pre>
+          <pre>
           <code>
           <span class="code-comment">// Undefined and Null are each seperate datatypes</span>
           <span class="code-comment">// They are subtypes of all other types. You can assign them to a number for example</span>
@@ -147,6 +146,91 @@
           </pre>
         </mat-tab>
       </mat-tab-group>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h4 class="text-white">Type Assertion</h4>
+      <p class="lead text-white">
+        Similar to casting in other languages, type assertions are a way to tell
+        the compiler to trust your type choice. It has no runtime impact, and is
+        purely used by the compiler
+      </p>
+      <p class="lead text-white">
+        There are two correct syntaxes for type assertion:
+      </p>
+      <pre>
+          <code>
+            <span class="code-comment">// 'Angle-bracket' syntax</span>
+            <span class="code-tag">let</span> <span class="code-tag-light">someValue: </span><span class="code-type">any</span> = <span class="code-highlight">"this is a string"</span>;
+            <span class="code-tag">let</span> <span class="code-tag-light">strLength: </span><span class="code-type">number</span> = (&lt;<span class="code-comment">string</span>&gt;<span class="code-tag-light">someValue</span>).<span class="code-tag-light">length</span>;
+
+            <span class="code-comment">// 'As' syntax</span>
+            <span class="code-tag">let</span> <span class="code-tag-light">strLength: </span><span class="code-type">number</span> = (<span class="code-tag-light">someValue</span> <span class="code-highlight">as</span> <span class="code-type">string</span>).<span class="code-tag-light">length</span>;
+          </code>
+        </pre>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h4 class="text-white">Variable Declarations</h4>
+      <h5 class="text-white">let vs var</h5>
+      <p class="lead text-white">
+        Apart from the keyword used, let statements are written the same way as
+        var statements. When a variable is declared using let, it uses block
+        scoping (not visible outside its nearest containg block). Variables
+        declared with var are accessible anywhere within their containing
+        function, module, namespace, or global scope. Var declarations should
+        not be used in typescript, instead use let or const.
+      </p>
+      <h5 class="text-white">const declarations</h5>
+      <p class="lead text-white">
+        Const declarations have the same scoping rules as let, but their value
+        cannot be changed once they are bound.
+      </p>
+      <pre>
+        <code>
+          <span class="code-comment">// Proper declaration if you intend to modify variable</span>
+          <span class="code-tag">let</span> <span class="code-tag-light">someValue: </span><span class="code-type">string</span> = <span class="code-highlight">"variable string"</span>;
+
+          <span class="code-comment">// Proper declaration if variable will never change</span>
+          <span class="code-tag">const</span> <span class="code-tag-light">someValue: </span><span class="code-type">string</span> = <span class="code-highlight">"permanent string"</span>;
+
+          <span class="code-comment">// Should not use the var declaration </span>
+          <span class="code-tag">var</span> <span class="code-tag-light">someValue: </span><span class="code-type">string</span> = <span class="code-highlight">"improperly declared string"</span>;
+        </code>
+      </pre>
+      <h5 class="text-white">Destructuring</h5>
+      <p class="lead text-white">
+        TypeScript supports destructuring. This makes it possible to unpack
+        values from arrays, or properties from objects, into distinct variables.
+      </p>
+      <pre>
+        <code>
+          <span class="code-comment">// Array destructuring example</span>
+          <span class="code-tag">let</span> <span class="code-tag-light">input</span> = [<span class="code-value">1</span>, <span class="code-value">2</span>];
+          <span class="code-tag">let</span> [<span class="code-tag-light">first</span>, <span class="code-tag-light">second</span>] = <span class="code-tag-light">input</span>;
+
+          <span class="code-tag-light">console.</span><span class="code-func">log</span>(<span class="code-tag-light">first</span>); <span class="code-comment">// Outputs 1</span>
+          <span class="code-tag-light">console.</span><span class="code-func">log</span>(<span class="code-tag-light">second</span>); <span class="code-comment">// Outputs 2</span>
+        </code>
+      </pre>
+      <h5 class="text-white">Spread Operator</h5>
+      <p class="lead text-white">
+        Essentially the opposite of destructuring, the spread operator allows
+        you to spread an array or object into another. The operator itself looks
+        like three trailing dots: ...
+      </p>
+      <pre>
+        <code>
+          <span class="code-tag">let</span> <span class="code-tag-light">first</span> = [<span class="code-value">1</span>, <span class="code-value">2</span>];
+          <span class="code-tag">let</span> <span class="code-tag-light">second</span> = [<span class="code-value">3</span>, <span class="code-value">4</span>];
+          <span class="code-tag">let</span> <span class="code-tag-light">both</span> = [<span class="code-value">0</span>, ...<span class="code-value">first</span>, ...<span class="code-value">second</span>, <span class="code-value">5</span>];
+
+          <span class="code-comment">// This will result in</span>
+          <span class="code-tag-light">both</span> = [<span class="code-value">0</span>, <span class="code-value">1</span>, <span class="code-value">2</span>, <span class="code-value">3</span>, <span class="code-value">4</span>, <span class="code-value">5</span>];
+        </code>
+      </pre>
     </div>
   </div>
 </div>
