@@ -171,10 +171,14 @@
         </pre>
     </div>
   </div>
+  <div class="row py-2">
+    <div class="col">
+      <h2 class="text-white">Variable Declarations</h2>
+    </div>
+  </div>
   <div class="row">
     <div class="col">
-      <h4 class="text-white">Variable Declarations</h4>
-      <h5 class="text-white">let vs var</h5>
+      <h4 class="text-white">let vs var</h4>
       <p class="lead text-white">
         Apart from the keyword used, let statements are written the same way as
         var statements. When a variable is declared using let, it uses block
@@ -183,7 +187,7 @@
         function, module, namespace, or global scope. Var declarations should
         not be used in typescript, instead use let or const.
       </p>
-      <h5 class="text-white">const declarations</h5>
+      <h4 class="text-white">const declarations</h4>
       <p class="lead text-white">
         Const declarations have the same scoping rules as let, but their value
         cannot be changed once they are bound.
@@ -200,7 +204,7 @@
           <span class="code-tag">var</span> <span class="code-tag-light">someValue: </span><span class="code-type">string</span> = <span class="code-highlight">"improperly declared string"</span>;
         </code>
       </pre>
-      <h5 class="text-white">Destructuring</h5>
+      <h4 class="text-white">Destructuring</h4>
       <p class="lead text-white">
         TypeScript supports destructuring. This makes it possible to unpack
         values from arrays, or properties from objects, into distinct variables.
@@ -215,7 +219,7 @@
           <span class="code-tag-light">console.</span><span class="code-func">log</span>(<span class="code-tag-light">second</span>); <span class="code-comment">// Outputs 2</span>
         </code>
       </pre>
-      <h5 class="text-white">Spread Operator</h5>
+      <h4 class="text-white">Spread Operator</h4>
       <p class="lead text-white">
         Essentially the opposite of destructuring, the spread operator allows
         you to spread an array or object into another. The operator itself looks
@@ -229,6 +233,83 @@
 
           <span class="code-comment">// This will result in</span>
           <span class="code-tag-light">both</span> = [<span class="code-value">0</span>, <span class="code-value">1</span>, <span class="code-value">2</span>, <span class="code-value">3</span>, <span class="code-value">4</span>, <span class="code-value">5</span>];
+        </code>
+      </pre>
+    </div>
+  </div>
+  <div class="row py-2">
+    <div class="col">
+      <h2 class="text-white">Interfaces</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <p class="lead text-white">
+        An interface is a structure that defines how an object should look in
+        your application. Interfaces are used for type checking, and do not
+        compile into running code. They can include properties and method
+        declarations. Optional properties are denoted with a question mark
+        immediately following the variable name.
+      </p>
+      <pre>
+        <code>
+          <span class="code-tag">interface</span> <span class="code-type">SquareConfig</span> {{ '{' }}
+            <span class="code-tag-light">color</span>?: <span class="code-type">string</span>;
+            <span class="code-tag-light">width</span>?: <span class="code-type">number</span>;
+          {{ '}' }}
+        </code>
+      </pre>
+      <h4 class="text-white">Extending Interfaces</h4>
+      <p class="lead text-white">
+        Interfaces can extend each other, copying the members of one into
+        another.
+      </p>
+      <pre>
+        <code>
+          <span class="code-tag">interface</span> <span class="code-type">Shape</span> {{ '{' }}
+            <span class="code-tag-light">color</span>: <span class="code-type">string</span>;
+          {{ '}' }}
+
+          <span class="code-tag">interface</span> <span class="code-type">Square</span> <span class="code-tag">extends</span> <span class="code-type">Shape</span> {{ '{' }}
+            <span class="code-tag-light">sideLength</span>: <span class="code-type">number</span>;
+          {{ '}' }}
+
+          <span class="code-tag">let</span> <span class="code-tag-light">square</span> = {{ '{' }} {{ '}' }} <span class="code-tag">as </span><span class="code-type">Square</span>;
+          <span class="code-tag-light">square</span>.<span class="code-tag-light">color</span> = <span class="code-highlight">"blue"</span>;
+          <span class="code-tag-light">square</span>.<span class="code-tag-light">sideLength</span> = <span class="code-value">10</span>;
+        </code>
+      </pre>
+    </div>
+  </div>
+  <div class="row py-2">
+    <div class="col">
+      <h2 class="text-white">Classes</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <p class="lead text-white">
+        TypeScript allows an object-oriented class-based approach, in which
+        classes inherit functionality and objects can be built. The keyword this
+        is used to reference a member of the class.
+      </p>
+      <h4 class="text-white">Inheritance</h4>
+      <p class="lead text-white">
+        A fundamental pattern of class based programming is the ability to
+        extend existing classes. A class will inherit properties and methods
+        from the class they extend.
+      </p>
+      <h4 class="text-white">Public, private, and protected</h4>
+      <p class="lead text-white">
+        In TypeScript, each class member is public by default. A member can be
+        marked private, which means it cannot be accessed from outside of its
+        containing class. TypeScript 3.8 supports new 'hash' syntax for marking
+        a variable as private. Variables declared protected act much like
+        private variables, except they can be accessed within deriving classes.
+      </p>
+      <pre>
+        <code>
+          <span class="code-tag-light">#name</span>: <span class="code-type">string</span> = <span class="code-highlight">"private variable with hash syntax"</span>;
         </code>
       </pre>
     </div>
