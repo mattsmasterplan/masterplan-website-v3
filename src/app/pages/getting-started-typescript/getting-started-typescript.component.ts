@@ -10,3 +10,11 @@ export class GettingStartedTypescriptComponent implements OnInit {
 
   ngOnInit(): void {}
 }
+
+function add(x, y) {
+  return x + y;
+}
+
+function fun<T>(args: T): T {
+  return args;
+}

@@ -53,3 +53,7 @@ code {
 .code-func {
   color: #dcdcaa;
 }
+
+.code-return {
+  color: #c586c0;
+}

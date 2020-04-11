@@ -290,9 +290,16 @@
     <div class="col">
       <p class="lead text-white">
         TypeScript allows an object-oriented class-based approach, in which
-        classes inherit functionality and objects can be built. The keyword this
-        is used to reference a member of the class.
+        classes inherit functionality and objects can be built.
       </p>
+      <pre>
+        <code>
+          <span class="code-tag">class</span> <span class="code-type">Greeter</span> {{ '{' }}
+          <span class="code-comment">// Constructor declarations are optional </span>
+            <span class="code-tag">constructor</span>{{ '() {  }' }}
+          {{ '}' }}
+        </code>
+      </pre>
       <h4 class="text-white">Inheritance</h4>
       <p class="lead text-white">
         A fundamental pattern of class based programming is the ability to
@@ -310,6 +317,76 @@
       <pre>
         <code>
           <span class="code-tag-light">#name</span>: <span class="code-type">string</span> = <span class="code-highlight">"private variable with hash syntax"</span>;
+        </code>
+      </pre>
+      <h4 class="text-white">Static</h4>
+      <p class="lead text-white">
+        Members of a class declared static can be accessed using the class name
+        and dot notation, without ceating an object. Static members can be
+        defined by using the keyword <code>static</code>.
+      </p>
+    </div>
+  </div>
+  <div class="row py-2">
+    <div class="col">
+      <h2 class="text-white">Functions</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <p class="lead text-white">
+        TypeScript contains both named and anonymous functions.
+      </p>
+      <pre>
+        <code>
+          <span class="code-comment">// Named function</span>
+          <span class="code-tag">function </span><span class="code-func">add</span>{{ '(' }}<span class="code-tag-light">x</span>, <span class="code-tag-light">y</span>{{') {'}}
+            <span class="code-return">return</span> <span class="code-tag-light">x</span> + <span class="code-tag-light">y</span>;
+          {{'}'}}
+
+          <span class="code-comment">// Anonymous function</span>
+          <span class="code-tag">let</span> <span class="code-tag-light">myAdd</span> = <span class="code-func">function</span>{{'('}}<span class="code-tag-light">x</span>, <span class="code-tag-light">y</span>{{')  {'}} <span class="code-return">return</span> <span class="code-tag-light">x</span> + <span class="code-tag-light">y</span>{{'; };'}}
+        </code>
+      </pre>
+      <h4 class="text-white">Function Typing</h4>
+      <p class="lead text-white">
+        We can add what type we expect each function parameter to be, as well as
+        what type the function will return.
+      </p>
+      <h4 class="text-white">The <i>this</i> keyword</h4>
+      <p class="lead text-white">
+        The variable <code>this</code> is set when a function is called.
+        <code>this</code> contains a context that is determined by how the
+        function is invoked.
+      </p>
+      <h4 class="text-white">Overloads</h4>
+      <p class="lead text-white">
+        A function can return different types of objects based on the arguments
+        passed in. To handle this, we can supply multiple function types for the
+        same function as a list of overloads.
+      </p>
+    </div>
+  </div>
+  <div class="row py-2">
+    <div class="col">
+      <h2 class="text-white">Generics</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <p class="lead text-white">
+        A major part of application development is creating reusable components,
+        and generics are a main tool for doing that. Generics let you write a
+        generalized form of a method that can handle different types. TypeScript
+        has Type parameters which show the type of data being passed into a
+        class, interface, or function.
+      </p>
+      <pre>
+        <code>
+          <span class="code-comment">// 'T' is generally used to define type parameters, however other chars will work as well</span>
+          <span class="code-tag">function</span> <span class="code-func">unknownInputType</span>{{'<'}}<span class="code-type">T</span>{{'>('}}<span class="code-tag-light">args</span>: <span class="code-type">T</span>{{'):'}}<span class="code-type">T</span> {{'{'}}
+            <span class="code-return">return</span> <span class="code-tag-light">args</span>;
+          {{"}"}}
         </code>
       </pre>
     </div>
