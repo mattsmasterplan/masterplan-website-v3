@@ -283,6 +283,66 @@
   </div>
   <div class="row py-2">
     <div class="col">
+      <h2 class="text-white">Functions</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <p class="lead text-white">
+        TypeScript contains both named and anonymous functions.
+      </p>
+      <pre>
+        <code>
+          <span class="code-comment">// Named function</span>
+          <span class="code-tag">function </span><span class="code-func">add</span>{{ '(' }}<span class="code-tag-light">x</span>, <span class="code-tag-light">y</span>{{') {'}}
+            <span class="code-return">return</span> <span class="code-tag-light">x</span> + <span class="code-tag-light">y</span>;
+          {{'}'}}
+
+          <span class="code-comment">// Anonymous function</span>
+          <span class="code-tag">let</span> <span class="code-tag-light">myAdd</span> = <span class="code-func">function</span>{{'('}}<span class="code-tag-light">x</span>, <span class="code-tag-light">y</span>{{')  {'}} <span class="code-return">return</span> <span class="code-tag-light">x</span> + <span class="code-tag-light">y</span>{{'; };'}}
+        </code>
+      </pre>
+      <h4 class="text-white">Function Typing</h4>
+      <p class="lead text-white">
+        We can add what type we expect each function parameter to be, as well as
+        what type the function will return.
+      </p>
+      <h4 class="text-white">The <i>this</i> keyword</h4>
+      <p class="lead text-white">
+        The variable <code>this</code> is set when a function is called.
+        <code>this</code> contains a context that is determined by how the
+        function is invoked.
+      </p>
+      <h4 class="text-white">Overloads</h4>
+      <p class="lead text-white">
+        A function can return different types of objects based on the arguments
+        passed in. To handle this, we can supply multiple function types for the
+        same function as a list of overloads.
+      </p>
+    </div>
+  </div>
+  <div class="row py-2">
+    <div class="col">
+      <h2 class="text-white">Literal Types</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+
+    </div>
+  </div>
+  <div class="row py-2">
+    <div class="col">
+      <h2 class="text-white">Intersection and Union Types</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+
+    </div>
+  </div>
+  <div class="row py-2">
+    <div class="col">
       <h2 class="text-white">Classes</h2>
     </div>
   </div>
@@ -329,42 +389,12 @@
   </div>
   <div class="row py-2">
     <div class="col">
-      <h2 class="text-white">Functions</h2>
+      <h2 class="text-white">Enums</h2>
     </div>
   </div>
   <div class="row">
     <div class="col">
-      <p class="lead text-white">
-        TypeScript contains both named and anonymous functions.
-      </p>
-      <pre>
-        <code>
-          <span class="code-comment">// Named function</span>
-          <span class="code-tag">function </span><span class="code-func">add</span>{{ '(' }}<span class="code-tag-light">x</span>, <span class="code-tag-light">y</span>{{') {'}}
-            <span class="code-return">return</span> <span class="code-tag-light">x</span> + <span class="code-tag-light">y</span>;
-          {{'}'}}
 
-          <span class="code-comment">// Anonymous function</span>
-          <span class="code-tag">let</span> <span class="code-tag-light">myAdd</span> = <span class="code-func">function</span>{{'('}}<span class="code-tag-light">x</span>, <span class="code-tag-light">y</span>{{')  {'}} <span class="code-return">return</span> <span class="code-tag-light">x</span> + <span class="code-tag-light">y</span>{{'; };'}}
-        </code>
-      </pre>
-      <h4 class="text-white">Function Typing</h4>
-      <p class="lead text-white">
-        We can add what type we expect each function parameter to be, as well as
-        what type the function will return.
-      </p>
-      <h4 class="text-white">The <i>this</i> keyword</h4>
-      <p class="lead text-white">
-        The variable <code>this</code> is set when a function is called.
-        <code>this</code> contains a context that is determined by how the
-        function is invoked.
-      </p>
-      <h4 class="text-white">Overloads</h4>
-      <p class="lead text-white">
-        A function can return different types of objects based on the arguments
-        passed in. To handle this, we can supply multiple function types for the
-        same function as a list of overloads.
-      </p>
     </div>
   </div>
   <div class="row py-2">
