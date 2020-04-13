@@ -163,7 +163,7 @@
           <code>
             <span class="code-comment">// 'Angle-bracket' syntax</span>
             <span class="code-tag">let</span> <span class="code-tag-light">someValue: </span><span class="code-type">any</span> = <span class="code-highlight">"this is a string"</span>;
-            <span class="code-tag">let</span> <span class="code-tag-light">strLength: </span><span class="code-type">number</span> = (&lt;<span class="code-comment">string</span>&gt;<span class="code-tag-light">someValue</span>).<span class="code-tag-light">length</span>;
+            <span class="code-tag">let</span> <span class="code-tag-light">strLength: </span><span class="code-type">number</span> = (&lt;<span class="code-type">string</span>&gt;<span class="code-tag-light">someValue</span>).<span class="code-tag-light">length</span>;
 
             <span class="code-comment">// 'As' syntax</span>
             <span class="code-tag">let</span> <span class="code-tag-light">strLength: </span><span class="code-type">number</span> = (<span class="code-tag-light">someValue</span> <span class="code-highlight">as</span> <span class="code-type">string</span>).<span class="code-tag-light">length</span>;
@@ -328,7 +328,33 @@
   </div>
   <div class="row">
     <div class="col">
+      <p class="lead text-white">
+        TypeScript has two literal types, strings and numbers. You can use
+        literals to specify an exact value or values a string or number must be.
+      </p>
+      <h4 class="text-white">String Literal</h4>
+      <p class="lead text-white">
+        The keyword <code>type</code> creates a new type aliase. Aliasing
+        doesn't create a new type, it creates a new name to refer to that type.
+      </p>
+      <pre>
+        <code>
+          <span class="code-comment">// You can only pass one of the three allowed strings, anything else will give an error.</span>
+          <span class="code-tag">type</span> <span class="code-tag-light">Easing</span> = <span class="code-highlight">"ease-in"</span> | <span class="code-highlight">"ease-out"</span> | <span class="code-highlight">"ease-in-out"</span>;
+        </code>
+      </pre>
 
+      <h4 class="text-white">Numeric Literal</h4>
+      <pre>
+        <code>
+          <span class="code-comment">// tileSize has 3 literal numeric values that are possible</span>
+          <span class="code-tag">interface</span> <span class="code-type">MapConfig</span> {{ '{' }}
+            <span class="code-tag-light">lng</span>: <span class="code-type">number</span>;
+            <span class="code-tag-light">lat</span>: <span class="code-type">number</span>;
+            <span class="code-tag-light">tileSize</span>: <span class="code-type">8</span> | <span class="code-type">16</span> | <span class="code-type">32</span>;
+          {{ '}' }}
+        </code>
+      </pre>
     </div>
   </div>
   <div class="row py-2">
@@ -338,7 +364,25 @@
   </div>
   <div class="row">
     <div class="col">
-
+      <h4 class="text-white">Union Types</h4>
+      <p class="lead text-white">
+        A union type describes a value that can be one of several types. We use
+        a vertical bar <code>|</code> to seperate each type as seen above in the
+        String Literal code.
+      </p>
+      <h4 class="text-white">Intersection Types</h4>
+      <p class="lead text-white">
+        An intersection type combines multiple types into one. An object defined
+        as an intersection type will have access to all members of the
+        intersecting types. Intersections are defined by the
+        <code>&</code> symbol between types.
+      </p>
+      <pre>
+        <code>
+          <span class="code-comment">// Intersecting types create a type alias</span>
+          <span class="code-tag">type</span> <span class="code-type">ArtworksResponse</span> = <span class="code-type">ArtworksData</span> & <span class="code-type">ErrorHandling</span>;
+        </code>
+      </pre>
     </div>
   </div>
   <div class="row py-2">
@@ -393,9 +437,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col">
-
-    </div>
+    <div class="col"></div>
   </div>
   <div class="row py-2">
     <div class="col">
