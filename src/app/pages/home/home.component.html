@@ -38,36 +38,82 @@
         <mat-card-actions>
           <div class="row text-center">
             <div class="col">
-              <a [routerLink]="['cuyahoga-valley']">
+              <button
+                type="button"
+                class="btn btn-link btn-lg"
+                [routerLink]="['cuyahoga-valley']"
+              >
                 <img
-                  width="125px"
+                  height="125px"
                   src="../../../assets/images/home/cuyahoga-valley-pin.png"
                 />
-              </a>
+              </button>
             </div>
             <div class="col">
-              <a [routerLink]="['great-basin']">
+              <button
+                type="button"
+                class="btn btn-link btn-lg"
+                [routerLink]="['great-basin']"
+              >
                 <img
                   height="125px"
                   src="../../../assets/images/home/great-basin-pin.png"
                 />
-              </a>
+              </button>
             </div>
             <div class="col">
-              <a [routerLink]="['isle-royale']">
+              <button
+                type="button"
+                class="btn btn-link btn-lg"
+                [routerLink]="['isle-royale']"
+              >
                 <img
                   height="125px"
                   src="../../../assets/images/home/isle-royale-pin.png"
                 />
-              </a>
+              </button>
             </div>
             <div class="col">
-              <a disabled [routerLink]="['shenandoah']">
+              <button
+                type="button"
+                style="cursor: default;"
+                class="btn btn-link btn-lg"
+                [routerLink]="['shenandoah']"
+                disabled
+              >
                 <img
                   height="125px"
                   src="../../../assets/images/home/shenandoah-pin.png"
                 />
-              </a>
+              </button>
+            </div>
+            <div class="col">
+              <button
+                type="button"
+                style="cursor: default;"
+                class="btn btn-link btn-lg"
+                [routerLink]="['shenandoah']"
+                disabled
+              >
+                <img
+                  height="125px"
+                  src="../../../assets/images/home/voyageurs-pin.png"
+                />
+              </button>
+            </div>
+            <div class="col">
+              <button
+                type="button"
+                style="cursor: default;"
+                class="btn btn-link btn-lg"
+                [routerLink]="['shenandoah']"
+                disabled
+              >
+                <img
+                  height="125px"
+                  src="../../../assets/images/home/virgin-islands-pin.png"
+                />
+              </button>
             </div>
           </div>
         </mat-card-actions>

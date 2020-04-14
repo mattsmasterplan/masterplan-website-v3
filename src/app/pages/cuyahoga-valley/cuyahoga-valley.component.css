@@ -1,14 +1,13 @@
 .jumbotron {
   min-height: 300px;
-  color: white;
-
+  color: rgb(160, 160, 160);
   background: url(../../../assets/images/cuyahoga-valley-np/CuyahogaValleyBackground.jpg)
-    no-repeat center center fixed !important;
+    fixed center no-repeat;
+  background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
-  background-size: cover;
   -o-background-size: cover;
-
+  /* Create space to display background image behind title */
   padding-top: 25rem;
   padding-bottom: 25rem;
 }
