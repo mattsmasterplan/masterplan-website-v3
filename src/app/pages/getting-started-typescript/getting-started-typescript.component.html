@@ -399,7 +399,7 @@
       <pre>
         <code>
           <span class="code-tag">class</span> <span class="code-type">Greeter</span> {{ '{' }}
-          <span class="code-comment">// Constructor declarations are optional </span>
+            <span class="code-comment">// Constructor declarations are optional </span>
             <span class="code-tag">constructor</span>{{ '() {  }' }}
           {{ '}' }}
         </code>
@@ -437,7 +437,28 @@
     </div>
   </div>
   <div class="row">
-    <div class="col"></div>
+    <div class="col">
+      <p class="lead text-white">
+        Enums in TypeScript can be either numeric or string based. The keyword <code>enum</code> is reserved for defining enums.
+
+      </p>
+      <h4 class="text-white">Numeric Enums</h4>
+      <p class="lead text-white">The default start value for an enum member is 0. This value will increment by 1 for each member.
+        You can initialize a member to a value, and it will auto increment from there. See an example of this in the enum tab under basic types.
+      </p>
+      <h4 class="text-white">String Enums</h4>
+      <p class="lead text-white">Each member of a string enum needs to be constant-initialized with a string literal.</p>
+      <pre>
+        <code>
+          <span class="code-tag">enum</span> <span class="code-type">Direction</span> {{'{'}}
+            <span class="code-value">Up</span> = <span class="code-highlight">"UP"</span>,
+            <span class="code-value">Down</span> = <span class="code-highlight">"DOWN"</span>,
+            <span class="code-value">Left</span> = <span class="code-highlight">"LEFT"</span>,
+            <span class="code-value">Right</span> = <span class="code-highlight">"RIGHT"</span>,
+          {{'}'}}
+        </code>
+      </pre>
+    </div>
   </div>
   <div class="row py-2">
     <div class="col">
@@ -461,6 +482,13 @@
           {{"}"}}
         </code>
       </pre>
+    </div>
+  </div>
+  <div class="row pt-3">
+    <div class="col">
+      <p class="lead text-white">All information is summarized from the official TypeScript handbook:
+      </p>
+      <a target="_blank" href="https://www.typescriptlang.org/v2/docs/handbook/">The TypeScript Handbook</a>
     </div>
   </div>
 </div>
