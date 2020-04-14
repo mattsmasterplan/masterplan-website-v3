@@ -1,9 +1,24 @@
+
+.jumbotron {
+  min-height: 300px;
+  color: rgb(160, 160, 160);
+  background: url(../../../../assets/images/isle-royale/isle-royale-background.jpg)
+    fixed center no-repeat;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  /* Create space to display background image behind title */
+  padding-top: 15vh;
+  padding-bottom: 15vh;
+}
 mat-grid-tile {
   background: lightblue;
 }
 
 mat-card {
   background-color: rgba(122, 122, 122, 0);
+  padding-bottom: 100px;
 }
 
 .tile-img {
@@ -11,3 +26,4 @@ mat-card {
   height: inherit;
   width: inherit;
 }
+
