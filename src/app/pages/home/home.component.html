@@ -167,6 +167,30 @@
     </div>
     <div class="col-md-4">
       <mat-card class="maintain-height">
+        <mat-card-header class="text-center" style="justify-content: center;">
+          <mat-card-title>
+            <h2 class="text-center div-heading">
+              Getting Started:
+            </h2>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="pt-3">
+          <img
+            src="../../../assets/images/home/typescript-logo.png"
+            class="card-img"
+            alt="..."
+          />
+          <p class="text-white lead pt-3">
+            My summarization of the TypeScript handbook.
+          </p>
+          <p class="text-center text-white lead">
+            <a [routerLink]="['getting-started-typescript']">Read</a>
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="col-md-4">
+      <mat-card class="maintain-height">
         <mat-card-header style="justify-content: center;">
           <mat-card-title>
             <h2 class="text-center div-heading">
@@ -211,35 +235,6 @@
         </mat-card-actions>
       </mat-card>
     </div>
-    <div class="col-md-4">
-      <mat-card class="maintain-height">
-        <mat-card-header style="justify-content: center;">
-          <mat-card-title>
-            <h2 class="text-center div-heading">
-              Build Computers
-            </h2>
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <p class="text-white lead">
-            My current workstation, a small form factor computer. Dan Case
-            featuring custom power supply cables.
-          </p>
-          <p class="text-center lead">
-            <a [routerLink]="['dancase-build']"> Details</a>
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-          <mat-chip-list class="text-center">
-            <div class="flx-spacer"></div>
-            <mat-chip selected color="primary">
-              Bootstrap 4
-            </mat-chip>
-            <div class="flx-spacer"></div>
-          </mat-chip-list>
-        </mat-card-actions>
-      </mat-card>
-    </div>
   </div>
   <div class="row py-3">
     <div class="col-md-4">
@@ -275,29 +270,33 @@
     </div>
     <div class="col-md-4">
       <mat-card class="maintain-height">
-        <mat-card-header class="text-center" style="justify-content: center;">
+        <mat-card-header style="justify-content: center;">
           <mat-card-title>
             <h2 class="text-center div-heading">
-              Getting Started:
+              Build Computers
             </h2>
           </mat-card-title>
         </mat-card-header>
-        <mat-card-content class="pt-3">
-          <img
-            src="../../../assets/images/home/typescript-logo.png"
-            class="card-img"
-            alt="..."
-          />
-          <p class="text-white lead pt-3">
-            My summarization of the TypeScript handbook.
+        <mat-card-content>
+          <p class="text-white lead">
+            My current workstation, a small form factor computer. Dan Case
+            featuring custom power supply cables.
           </p>
-          <p class="text-center text-white lead">
-            <a [routerLink]="['getting-started-typescript']">Read</a>
+          <p class="text-center lead">
+            <a [routerLink]="['dancase-build']"> Details</a>
           </p>
         </mat-card-content>
+        <mat-card-actions>
+          <mat-chip-list class="text-center">
+            <div class="flx-spacer"></div>
+            <mat-chip selected color="primary">
+              Bootstrap 4
+            </mat-chip>
+            <div class="flx-spacer"></div>
+          </mat-chip-list>
+        </mat-card-actions>
       </mat-card>
     </div>
-
     <div class="col-md-4">
       <mat-card class="maintain-height">
         <mat-card-header class="text-center" style="justify-content: center;">
@@ -339,7 +338,6 @@
   </div>
   <div class="row py-3">
     <div class="col"></div>
-
     <div class="col-md-4">
       <mat-card class="maintain-height">
         <mat-card-header style="justify-content: center;">
