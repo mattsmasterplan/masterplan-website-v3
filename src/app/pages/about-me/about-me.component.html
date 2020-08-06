@@ -9,184 +9,56 @@
     </div>
     <div class="col-md-3"></div>
   </div>
-  <h1 class="text-white pt-4 text-center">I am Matthew Bury.</h1>
-  <h1 class="text-white py-2 text-center">
-    A professional developer living in Ann Arbor, Michigan.
+  <h1 class="text-white pt-4 text-center display-4">I am Matthew Bury.</h1>
+  <h1 class="text-white py-2 text-center display-4">
+    WEB & GIS professional living in Ann Arbor, Michigan.
   </h1>
-  <h3 class="text-white pt-5">Education</h3>
-  <div class="row">
-    <div class="col-md-12">
-      <mat-card class="text-white">
-        <mat-card-header>
-          <img
-            mat-card-avatar
-            src="../../../assets/images/about-me/emu-logo.png"
-          />
+  <h1 class="text-white pt-5 text-center">Education</h1>
 
-          <mat-card-title
-            ><h3>Bachelor degree in Computer Science</h3></mat-card-title
-          >
-          <mat-card-subtitle class="text-white lead"
-            >Eastern Michigan University, Ypsilanti, MI</mat-card-subtitle
-          >
-          <mat-card-subtitle class="text-white lead"
-            >2018 - 2020</mat-card-subtitle
-          >
-        </mat-card-header>
-        <mat-card-content class="text-white lead">
-          I used my time at Eastern to learn about the aspects of computer
-          science that interest me most. My elective classes were focused on
-          studying database principles, big data, and cybersecurity. The
-          required classes in Eastern's curriculum taught me advanced concepts
-          of computer science using the Java language. I was also able to study
-          GIS and cartography which earned me a minor in Geography.
-        </mat-card-content>
-      </mat-card>
-    </div>
-  </div>
-  <div class="row pt-3">
+  <div class="row pt-3" *ngFor="let edu of education">
     <div class="col-md-12">
       <mat-card class="text-white">
         <mat-card-header>
-          <img
-            mat-card-avatar
-            src="../../../assets/images/about-me/wcc-logo.jpg"
-          />
+          <img mat-card-avatar [src]="edu.src" />
           <mat-card-title
-            ><h3>
-              Associate degree in Computer Science: Programming in Java
-            </h3></mat-card-title
+            ><h3>{{ edu.title }}</h3></mat-card-title
           >
-          <mat-card-subtitle class="text-white lead"
-            >Washtenaw Community College, Ann Arbor, MI</mat-card-subtitle
-          >
-          <mat-card-subtitle class="text-white lead"
-            >2013 - 2015</mat-card-subtitle
-          >
+          <mat-card-subtitle class="text-white lead">{{
+            edu.subtitleOne
+          }}</mat-card-subtitle>
+          <mat-card-subtitle class="text-white lead">{{
+            edu.subtitleTwo
+          }}</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content class="text-white lead">
-          At WCC I developed a foundation for programming using the Java
-          language. An elective class I took on Android programming really stood
-          out to me and I still enjoy working with Android applications.
+          {{ edu.content }}
         </mat-card-content>
       </mat-card>
     </div>
   </div>
-  <h3 class="text-white pt-5">Work Experience</h3>
-  <div class="row">
+
+  <h1 class="text-white pt-5 text-center">Work Experience</h1>
+  <div class="row pt-3" *ngFor="let exp of experience">
     <div class="col-md-12">
       <mat-card>
         <mat-card-header>
           <mat-card-title class="text-white"
-            ><h3>Full Stack Web Developer</h3></mat-card-title
+            ><h3>{{ exp.title }}</h3></mat-card-title
           >
-          <mat-card-subtitle class="text-white lead"
-            >Applied Dynamics International, Ann Arbor, MI</mat-card-subtitle
-          >
-          <mat-card-subtitle class="text-white lead"
-            >Jul 2018 - Jan 2019</mat-card-subtitle
-          >
+          <mat-card-subtitle class="text-white lead">{{
+            exp.subtitleOne
+          }}</mat-card-subtitle>
+          <mat-card-subtitle class="text-white lead">{{
+            exp.subtitleTwo
+          }}</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content class="text-white lead">
-          Managed the internal web pages, applications, and databases using
-          primarily the LAMP stack and Angular/JavaScript. Implemented the SAML
-          security standard to use single sign-on and two factor authentication
-          on existing web applications.
+          {{ exp.content }}
         </mat-card-content>
         <mat-card-actions>
           <mat-chip-list>
-            <mat-chip selected color="primary">
-              Angular
-            </mat-chip>
-            <mat-chip selected color="primary">
-              PHP
-            </mat-chip>
-            <mat-chip selected color="primary">
-              MySql
-            </mat-chip>
-            <mat-chip selected color="primary">
-              SAML
-            </mat-chip>
-            <mat-chip selected color="primary">
-              2FA
-            </mat-chip>
-          </mat-chip-list>
-        </mat-card-actions>
-      </mat-card>
-    </div>
-  </div>
-  <div class="row pt-3">
-    <div class="col-md-12">
-      <mat-card class="text-white">
-        <mat-card-header>
-          <mat-card-title class="text-white"
-            ><h3>Web Application Developer</h3></mat-card-title
-          >
-          <mat-card-subtitle class="text-white lead"
-            >Drew Technologies, Ann Arbor, MI</mat-card-subtitle
-          >
-          <mat-card-subtitle class="text-white lead"
-            >Jan 2016 - May 2018</mat-card-subtitle
-          >
-        </mat-card-header>
-        <mat-card-content class="text-white lead">
-          Developed web applications to assist an automotive services call
-          center with managing queues. I primarily worked with
-          AngularJS/JavaScript. Industry knowledge of interfacing with vehicles
-          (OBD2) using the web and Bluetooth technologies. Further knowledge of
-          vehicle control modules and automotive programming was required to
-          complete the applications I developed.
-        </mat-card-content>
-        <mat-card-actions>
-          <mat-chip-list>
-            <mat-chip selected color="primary">
-              Angular
-            </mat-chip>
-            <mat-chip selected color="primary">
-              .NET
-            </mat-chip>
-            <mat-chip selected color="primary">
-              API
-            </mat-chip>
-          </mat-chip-list>
-        </mat-card-actions>
-      </mat-card>
-    </div>
-  </div>
-  <div class="row pt-3">
-    <div class="col-md-12">
-      <mat-card class="text-white">
-        <mat-card-header>
-          <mat-card-title class="text-white"
-            ><h3>Frontend Web Developer</h3></mat-card-title
-          >
-          <mat-card-subtitle class="text-white lead"
-            >Fusion Digital, Dexter, MI</mat-card-subtitle
-          >
-          <mat-card-subtitle class="text-white lead"
-            >Jan 2015 - Dec 2015</mat-card-subtitle
-          >
-        </mat-card-header>
-        <mat-card-content class="text-white lead">
-          Deployed and managed the company website using Bootstrap and
-          JavaScript framework. Integrated customer account creation and secure
-          token based credit card processing. Worked to automate the process of
-          a customer uploading a design file to the product being printed on
-          industrial 3D printers.
-        </mat-card-content>
-        <mat-card-actions>
-          <mat-chip-list>
-            <mat-chip selected color="primary">
-              HTML5/CSS3
-            </mat-chip>
-            <mat-chip selected color="primary">
-              JavaScript
-            </mat-chip>
-            <mat-chip selected color="primary">
-              PHP
-            </mat-chip>
-            <mat-chip selected color="primary">
-              Bootstrap
+            <mat-chip selected color="primary" *ngFor="let chip of exp.chips">
+              {{ chip }}
             </mat-chip>
           </mat-chip-list>
         </mat-card-actions>
