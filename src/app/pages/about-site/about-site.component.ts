@@ -25,7 +25,7 @@ export class AboutSiteComponent implements OnInit {
     this.dependencies = [
       {
         name: 'Angular',
-        version: '9.1.0',
+        version: '10.0.8',
         link: 'https://www.npmjs.com/package/@angular/core',
         check: 'ng version'
       },
@@ -36,7 +36,7 @@ export class AboutSiteComponent implements OnInit {
       },
       {
         name: 'Angular Material',
-        version: '9.1.0',
+        version: '10.1.2',
         link: 'https://www.npmjs.com/package/@angular/material'
       },
       {
@@ -46,7 +46,7 @@ export class AboutSiteComponent implements OnInit {
       },
       {
         name: 'TypeScript',
-        version: '3.8.3',
+        version: '3.9.7',
         link: 'https://www.npmjs.com/package/typescript',
         check: 'tsc -v'
       },
