@@ -38,7 +38,7 @@ export class AboutSiteComponent implements OnInit {
       },
       {
         name: 'Angular Material',
-        version: '10.1.2',
+        version: '10.2.0',
         link: 'https://www.npmjs.com/package/@angular/material',
         update: 'ng update @angular/material'
       },
