@@ -6,6 +6,7 @@ export interface Dependency {
   link: string;
   version: string;
   check?: string;
+  update?: string;
 }
 
 @Component({
@@ -27,7 +28,8 @@ export class AboutSiteComponent implements OnInit {
         name: 'Angular',
         version: '10.0.8',
         link: 'https://www.npmjs.com/package/@angular/core',
-        check: 'ng version'
+        check: 'ng version',
+        update: 'ng update @angular/core'
       },
       {
         name: 'Node',
@@ -37,7 +39,8 @@ export class AboutSiteComponent implements OnInit {
       {
         name: 'Angular Material',
         version: '10.1.2',
-        link: 'https://www.npmjs.com/package/@angular/material'
+        link: 'https://www.npmjs.com/package/@angular/material',
+        update: 'ng update @angular/material'
       },
       {
         name: 'RxJS',

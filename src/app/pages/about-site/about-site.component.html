@@ -18,6 +18,9 @@
               <span matLine class="text-white" *ngIf="dep.check"
                 >CLI version check: <i>{{ dep.check }}</i></span
               >
+              <span matLine class="text-white" *ngIf="dep.update"
+                >Update command: <i>{{ dep.update }}</i></span
+              >
             </mat-list-item>
           </mat-list>
         </mat-card-content>
