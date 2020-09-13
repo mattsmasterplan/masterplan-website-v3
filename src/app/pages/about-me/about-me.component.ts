@@ -10,7 +10,7 @@ export class AboutMeComponent implements OnInit {
   education = [
     {
       src: '../../../assets/images/about-me/emu-logo.png',
-      title: 'Bachelor degree in Computer Science',
+      title: 'Bachelor Degree in Computer Science',
       subtitleOne: 'Eastern Michigan University, Ypsilanti, MI',
       subtitleTwo: '2018 - 2020',
       content:
@@ -18,7 +18,7 @@ export class AboutMeComponent implements OnInit {
     },
     {
       src: '../../../assets/images/about-me/wcc-logo.jpg',
-      title: 'Associate degree in Computer Science: Programming in Java',
+      title: 'Associate Degree in Computer Science: Programming in Java',
       subtitleOne: 'Washtenaw Community College, Ann Arbor, MI',
       subtitleTwo: '2013 - 2015',
       content:
@@ -32,7 +32,7 @@ export class AboutMeComponent implements OnInit {
       subtitleOne: 'USHR Inc., Livonia, MI',
       subtitleTwo: 'May 2020 - Present',
       content: 'Creating web based tools to support high definition map technology used in autonomous vehicles.',
-      chips: ['Vue', 'JavaScript', 'PostgreSQL', 'GIS', 'Geoserver']
+      chips: ['Vue', 'JavaScript', 'Node', 'PostgreSQL', 'GIS', 'Geoserver']
     },
     {
       title: 'Full Stack Web Developer',
