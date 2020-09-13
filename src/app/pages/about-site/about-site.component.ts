@@ -26,7 +26,7 @@ export class AboutSiteComponent implements OnInit {
     this.dependencies = [
       {
         name: 'Angular',
-        version: '10.0.8',
+        version: '10.1.1',
         link: 'https://www.npmjs.com/package/@angular/core',
         check: 'ng version',
         update: 'ng update @angular/core'
@@ -44,8 +44,9 @@ export class AboutSiteComponent implements OnInit {
       },
       {
         name: 'RxJS',
-        version: '6.5.4',
-        link: 'https://www.npmjs.com/package/rxjs'
+        version: '6.6.3',
+        link: 'https://www.npmjs.com/package/rxjs',
+        update: 'ng update rxjs'
       },
       {
         name: 'TypeScript',
@@ -61,9 +62,9 @@ export class AboutSiteComponent implements OnInit {
       },
       {
         name: 'Prettier',
-        version: '2.0.1',
+        version: '2.1.1',
         link: 'https://www.prettier.io/',
-        check: ''
+        check: 'prettier -v'
       }
     ];
   }
