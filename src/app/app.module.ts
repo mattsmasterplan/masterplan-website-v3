@@ -39,6 +39,7 @@ import {GeojsonDownloadComponent} from './pages/geojson-download/geojson-downloa
 import {IsleRoyaleComponent} from './pages/national-parks/isle-royale/isle-royale.component';
 import {ShenandoahComponent} from './pages/national-parks/shenandoah/shenandoah.component';
 import {GettingStartedTypescriptComponent} from './pages/getting-started-typescript/getting-started-typescript.component';
+import {BrazilTwentytwentyComponent} from './pages/brazil-twentytwenty/brazil-twentytwenty.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import {GettingStartedTypescriptComponent} from './pages/getting-started-typescr
     GeojsonDownloadComponent,
     IsleRoyaleComponent,
     ShenandoahComponent,
-    GettingStartedTypescriptComponent
+    GettingStartedTypescriptComponent,
+    BrazilTwentytwentyComponent
   ],
   imports: [
     BrowserModule,

@@ -49,6 +49,9 @@
     <span class="code-tag code-indent-ln2">&lt;span</span> <span class="code-tag-light">matLine class=</span><span class="code-highlight">"text-white"</span>
     <span class="code-tag-light code-indent-ln3">&#42;ngIf="dep.check"</span><span class="code-tag">></span>
     <span class="code-indent-ln3"></span>CLI version check: {{'{'}}{{'{'}} <span class="code-tag-light">dep.check</span> {{'}'}}{{'}'}}<span class="code-tag">&lt;/span></span>
+    <span class="code-tag code-indent-ln2">&lt;span</span> <span class="code-tag-light">matLine class=</span><span class="code-highlight">"text-white"</span>
+    <span class="code-tag-light code-indent-ln3">&#42;ngIf="dep.update"</span><span class="code-tag">></span>
+    <span class="code-indent-ln3"></span>Update command: <span class="code-tag-light">dep.update</span> {{'}'}}{{'}'}}<span class="code-tag">&lt;/span></span>
     <span class="code-tag code-indent-ln1">&lt;/mat-list-item></span>
     <span class="code-tag">&lt;/mat-list></span>
   </code>
@@ -61,7 +64,8 @@
     <span class="code-tag-light code-indent-ln2">name:</span> <span class="code-highlight">'Angular'</span>,
     <span class="code-tag-light code-indent-ln2">version:</span> <span class="code-highlight">'9.0.5'</span>,
     <span class="code-tag-light code-indent-ln2">link:</span> <span class="code-highlight">'https://www.npmjs.com/package/@angular/core',</span>
-    <span class="code-tag-light code-indent-ln2">check:</span> <span class="code-highlight">'ng version'</span>
+    <span class="code-tag-light code-indent-ln2">check:</span> <span class="code-highlight">'ng version'</span>,
+    <span class="code-tag-light code-indent-ln2">update:</span> <span class="code-highlight">'ng update @angular/core'</span>
     <span class="code-indent-ln1">{{'}'}},</span>
     ...
     ];

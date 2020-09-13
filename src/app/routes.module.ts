@@ -14,6 +14,7 @@ import {SourcesOfTheRiverComponent} from './pages/sources-of-the-river/sources-o
 import {DancaseBuildComponent} from './pages/dancase-build/dancase-build.component';
 import {RoadTripAppComponent} from './pages/road-trip-app/road-trip-app.component';
 import {GeojsonDownloadComponent} from './pages/geojson-download/geojson-download.component';
+import {BrazilTwentytwentyComponent} from './pages/brazil-twentytwenty/brazil-twentytwenty.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -33,7 +34,8 @@ const appRoutes: Routes = [
   {
     path: 'getting-started-typescript',
     component: GettingStartedTypescriptComponent
-  }
+  },
+  {path: 'brazil-twentytwenty', component: BrazilTwentytwentyComponent}
   // { path: '**', component: PageNotFoundComponent }
 ];
 
