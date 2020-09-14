@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ImageDisplayDialogComponent} from './../../dialogs/image-display-dialog/image-display-dialog.component';
+import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-brazil-twentytwenty',
@@ -6,20 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./brazil-twentytwenty.component.css']
 })
 export class BrazilTwentytwentyComponent implements OnInit {
+  constructor(private dialog: MatDialog) {}
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  openDialog(folder: string, filename: string) {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.height = 'auto';
+    dialogConfig.width = 'auto';
+
+    dialogConfig.data = {
+      folder,
+      filename
+    };
+
+    this.dialog.open(ImageDisplayDialogComponent, dialogConfig);
   }
-
-  switchStyle() {
-    if (document.getElementById('styleSwitch').checked) {
-      document.getElementById('gallery').classList.add("custom");
-      document.getElementById('exampleModal').classList.add("custom");
-    } else {
-      document.getElementById('gallery').classList.remove("custom");
-      document.getElementById('exampleModal').classList.remove("custom");
-    }
-  }
-
 }
