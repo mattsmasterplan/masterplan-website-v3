@@ -1,3 +1,9 @@
+.gallery-title {
+  font-family: 'ruthie';
+}
+
+
+
 #gallery img {
   height: 75vw;
   -o-object-fit: cover;
@@ -28,6 +34,12 @@
 * {
   -webkit-transition: 0.3s;
   transition: 0.3s;
+}
+
+.container-background {
+  background: #000000;
+  /* background-size: cover;
+  background-image: url('../../../assets/images/brazil-twentytwenty/brazil11.jpg'); */
 }
 
 #gallery.custom {
@@ -257,31 +269,6 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
-}
-
-.switch-wrap {
-  text-align: center;
-  background-color: #b1fbc1;
-  padding: 30px;
-  border-radius: 3px;
-  margin: 30px 0 0;
-}
-@media (min-width: 576px) {
-  .switch-wrap {
-    position: fixed;
-    bottom: 0;
-    display: -webkit-box;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: reverse;
-    flex-direction: row-reverse;
-    -webkit-box-align: center;
-    align-items: center;
-    width: 100%;
-    -webkit-box-pack: center;
-    justify-content: center;
-    padding: 10px;
-  }
 }
 
 .switch-text {
