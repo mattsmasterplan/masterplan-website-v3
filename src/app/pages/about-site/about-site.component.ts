@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Title} from '@angular/platform-browser';
+import {CommonModule} from '@angular/common';
 
 export interface Dependency {
   name: string;
@@ -26,7 +27,7 @@ export class AboutSiteComponent implements OnInit {
     this.dependencies = [
       {
         name: 'Angular',
-        version: '10.1.1',
+        version: '11.0.2',
         link: 'https://www.npmjs.com/package/@angular/core',
         check: 'ng version',
         update: 'ng update @angular/core'
@@ -38,7 +39,7 @@ export class AboutSiteComponent implements OnInit {
       },
       {
         name: 'Angular Material',
-        version: '10.2.0',
+        version: '11.0.1',
         link: 'https://www.npmjs.com/package/@angular/material',
         update: 'ng update @angular/material'
       },
@@ -50,7 +51,7 @@ export class AboutSiteComponent implements OnInit {
       },
       {
         name: 'TypeScript',
-        version: '3.9.7',
+        version: '4.0.5',
         link: 'https://www.npmjs.com/package/typescript',
         check: 'tsc -v'
       },
