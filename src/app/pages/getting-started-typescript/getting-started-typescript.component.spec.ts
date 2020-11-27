@@ -1,4 +1,4 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import {GettingStartedTypescriptComponent} from './getting-started-typescript.component';
 
@@ -6,7 +6,7 @@ describe('GettingStartedTypescriptComponent', () => {
   let component: GettingStartedTypescriptComponent;
   let fixture: ComponentFixture<GettingStartedTypescriptComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [GettingStartedTypescriptComponent]
     }).compileComponents();
