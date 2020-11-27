@@ -2,8 +2,6 @@
   font-family: 'ruthie';
 }
 
-
-
 #gallery img {
   height: 75vw;
   -o-object-fit: cover;
@@ -38,8 +36,6 @@
 
 .container-background {
   background: #000000;
-  /* background-size: cover;
-  background-image: url('../../../assets/images/brazil-twentytwenty/brazil11.jpg'); */
 }
 
 #gallery.custom {

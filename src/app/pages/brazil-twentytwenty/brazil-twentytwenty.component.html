@@ -1,5 +1,28 @@
 <div class="container container-background">
   <div class="row">
+    <div class="col">
+      <google-map
+        [height]="height"
+        width="auto"
+        [zoom]="zoom"
+        [center]="center"
+        [options]="options"
+      >
+        <map-marker
+          #markerElem
+          *ngFor="let marker of markers"
+          [position]="marker.position"
+          [label]="marker.label"
+          [title]="marker.title"
+          [options]="marker.options"
+        >
+        </map-marker>
+
+        <!-- <map-info-window>{{ infoContent }}</map-info-window> -->
+      </google-map>
+    </div>
+  </div>
+  <div class="row">
     <div class="col text-center text-white">
       <h1 class="gallery-title">Rio de Janeiro</h1>
     </div>
