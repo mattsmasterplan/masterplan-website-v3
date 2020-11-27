@@ -4,7 +4,7 @@ import {HttpClientModule} from '@angular/common/http';
 
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+// import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NavbarComponent} from './elements/navbar/navbar.component';
 import {FooterComponent} from './elements/footer/footer.component';
 import {HomeComponent} from './pages/home/home.component';
@@ -65,7 +65,6 @@ import {BrazilTwentytwentyComponent} from './pages/brazil-twentytwenty/brazil-tw
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    NgbModule,
     HttpClientModule,
     RoutesModule,
     MatToolbarModule,
