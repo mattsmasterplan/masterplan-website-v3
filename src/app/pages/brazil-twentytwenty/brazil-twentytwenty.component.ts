@@ -3,6 +3,7 @@ import {ImageDisplayDialogComponent} from './../../dialogs/image-display-dialog/
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import {MapInfoWindow, MapMarker, GoogleMap} from '@angular/google-maps';
 
+
 @Component({
   selector: 'app-brazil-twentytwenty',
   templateUrl: './brazil-twentytwenty.component.html',

@@ -41,6 +41,8 @@ import {ShenandoahComponent} from './pages/national-parks/shenandoah/shenandoah.
 import {GettingStartedTypescriptComponent} from './pages/getting-started-typescript/getting-started-typescript.component';
 import {BrazilTwentytwentyComponent} from './pages/brazil-twentytwenty/brazil-twentytwenty.component';
 
+import { YouTubePlayerModule } from "@angular/youtube-player";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -80,7 +82,8 @@ import {BrazilTwentytwentyComponent} from './pages/brazil-twentytwenty/brazil-tw
     MatGridListModule,
     MatTabsModule,
     MatCarouselModule.forRoot(),
-    GoogleMapsModule
+    GoogleMapsModule,
+    YouTubePlayerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
