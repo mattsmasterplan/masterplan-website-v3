@@ -1,5 +1,12 @@
 <div class="container container-background">
   <div class="row py-3">
+    <div class="col text-center text-white">
+      <h1 class="gallery-title display-1">Brazil</h1>
+      <h3 class="gallery-title">12/31/19 - 1/10/20</h3>
+    </div>
+  </div>
+
+  <div class="row py-3">
     <div class="col">
       <google-map
         [height]="height"
@@ -38,6 +45,22 @@
     data-toggle="modal"
     data-target="#imgModal"
   >
+  <div class="col-12 col-sm-6 col-lg-3">
+    <img
+      (click)="openDialog('brazil-twentytwenty', 'rio9_lg.jpg')"
+      class="w-100"
+      src="../../../assets/images/brazil-twentytwenty/rio9_sm.jpg"
+      alt="First slide"
+    />
+  </div>
+  <div class="col-12 col-sm-6 col-lg-3">
+    <img
+      (click)="openDialog('brazil-twentytwenty', 'rio7_lg.jpg')"
+      class="w-100"
+      src="../../../assets/images/brazil-twentytwenty/rio7_sm.jpg"
+      alt="First slide"
+    />
+  </div>
     <div class="col-12 col-sm-6 col-lg-3">
       <img
         (click)="openDialog('brazil-twentytwenty', 'rio1_lg.jpg')"
@@ -51,6 +74,22 @@
         (click)="openDialog('brazil-twentytwenty', 'rio2_lg.jpg')"
         class="w-100"
         src="../../../assets/images/brazil-twentytwenty/rio2_sm.jpg"
+        alt="First slide"
+      />
+    </div>
+    <div class="col-12 col-sm-6 col-lg-3">
+      <img
+        (click)="openDialog('brazil-twentytwenty', 'rio10_lg.jpg')"
+        class="w-100"
+        src="../../../assets/images/brazil-twentytwenty/rio10_sm.jpg"
+        alt="First slide"
+      />
+    </div>
+    <div class="col-12 col-sm-6 col-lg-3">
+      <img
+        (click)="openDialog('brazil-twentytwenty', 'rio11_lg.jpg')"
+        class="w-100"
+        src="../../../assets/images/brazil-twentytwenty/rio11_sm.jpg"
         alt="First slide"
       />
     </div>
@@ -70,13 +109,6 @@
         alt="First slide"
       />
     </div>
-  </div>
-  <div
-    class="row custom"
-    id="gallery"
-    data-toggle="modal"
-    data-target="#imgModal"
-  >
     <div class="col-12 col-sm-6 col-lg-3">
       <img
         (click)="openDialog('brazil-twentytwenty', 'rio5_lg.jpg')"
@@ -90,14 +122,6 @@
         (click)="openDialog('brazil-twentytwenty', 'rio6_lg.jpg')"
         class="w-100"
         src="../../../assets/images/brazil-twentytwenty/rio6_sm.jpg"
-        alt="First slide"
-      />
-    </div>
-    <div class="col-12 col-sm-6 col-lg-3">
-      <img
-        (click)="openDialog('brazil-twentytwenty', 'rio7_lg.jpg')"
-        class="w-100"
-        src="../../../assets/images/brazil-twentytwenty/rio7_sm.jpg"
         alt="First slide"
       />
     </div>
